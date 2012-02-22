@@ -199,7 +199,7 @@ GOOG_JS_FILES = {
 }
 GOOG_COMPILER_FLAGS=(
     '--compilation_level=ADVANCED_OPTIMIZATIONS',
-    '--externs=inhouse/static/js/externs.js',
+    '--externs=inhouse/static/jslib/externs.js',
 )
 GOOG_DEV_MODE = False
 GOOG_CLOSURE_PATH = None

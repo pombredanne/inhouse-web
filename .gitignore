@@ -5,3 +5,4 @@ dev.db
 *.mo
 settings_local.py
 /.idea
+assets/less/bootstrap/

@@ -2,10 +2,6 @@
 
 """Inhouse exception classes."""
 
-# -*- coding: utf-8 -*-
-
-"""Inhouse exception classes."""
-
 
 class InhouseError(StandardError):
     """Base error class."""

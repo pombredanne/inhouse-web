@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+
+"""Main fabric file
+
+Notes:
+ * To use the less compiler, install the 'NodeJS package manager' and run 'npm install --global less'
+"""
+
 import os
 import shutil
 import sys
@@ -13,11 +20,14 @@ from fabric.contrib.console import confirm
 
 CMD_PYTHON = 'python'
 CMD_PYLINT = 'pylint'
+CMD_LESSC = 'lessc'
 
 PYLINT_MODULES = ['inhouse']
 
 #INITIAL_FIXTURES = ['groups', 'permissions', 'dev_users']
 INITIAL_FIXTURES = ['countries', 'groups', 'dev_users']
+
+BOOTSTRAP_PATH = os.path.abspath(os.path.join('assets', 'less', 'bootstrap'))
 
 django.settings_module('settings')
 from django.conf import settings as dj_settings
@@ -71,6 +81,16 @@ def enable_initial_data():
 def errlint(pylint=CMD_PYLINT):
     """Run pylint to find only errors."""
     lint(pylint, pylint_args='-f colorized -d W,C,R,I -r n')
+
+
+def less():
+    """Compiles less scripts and outputs the css files."""
+    if not os.path.isdir(BOOTSTRAP_PATH):
+        os.makedirs(BOOTSTRAP_PATH)
+    #local('cd assets')
+    #local('curl https://github.com/twitter/bootstrap/tarball/v2.0.1 > bootstrap.tar.gz')
+    #local('tar xzf bootstrap.tar.gz')
+    local('lessc --compress assets/less/inhouse.less > inhouse/static/css/style.css')
 
 
 def lint(pylint=CMD_PYLINT, pylint_args=''):
