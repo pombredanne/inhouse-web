@@ -1,0 +1,41 @@
+{% extends "inhouse/base.html" %}
+{% load i18n %}
+{% load form_renderer %}
+
+{% block title %}{% trans "Log in" %} - {{ block.super }}{% endblock %}
+
+{% block content %}
+
+
+<noscript>
+  <div class="alert alert-error">
+    <h5>{% trans "Error" %}</h5>
+    <p>{% blocktrans %}Activate JavaScript in your web browser settings to use this site.{% endblocktrans %}</p>
+  </div>
+</noscript>
+
+<div class="row">
+  <div class="login_form" id="loginbox" style="display:none;">
+    <div><h3>{% trans "Log in" %}</h3></div>
+    <form method="post" action="{% url inhouse:login %}" id="formLogin" class="well">
+      {% csrf_token %}
+      {% if form.errors %}
+        <div class="alert alert-error">
+          <h5><span></span>{% trans "Please correct the following errors:" %}</h5>
+          <ul><li>{% blocktrans %}Your username and password didn't match. Please try again.{% endblocktrans %}</li></ul>
+        </div>
+      {% endif %}
+      {{ form }}
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary"><span>{% trans 'Log in' %}</span></button>
+    </form>
+    <div style="float:right;">{% reqfields form %}</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.getElementById('loginbox').style.display = '';
+</script>
+
+
+{% endblock %}

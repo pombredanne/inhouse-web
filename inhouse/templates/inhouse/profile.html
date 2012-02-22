@@ -1,0 +1,129 @@
+{% extends "inhouse/base.html" %}
+{% load i18n %}
+{% load form_renderer %}
+
+{% block title %}{% trans "Profile" %} - {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}<span class="divider">/</span><li><a href="{% url inhouse:profile %}" title="{% trans 'To page:' %} {% trans "Profile" %}">{% trans "Profile" %}</a></li>{% endblock %}
+
+{% block content %}
+
+  <h2>{% trans "Profile" %} {{ user }}</h2>
+
+  <form method="post" action="" class="well form-horizontal">
+      {{ profile_form_user }}
+      {% csrf_token %}
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit"><span>{% trans 'Save' %}</span></button>
+        <button class="btn" type="reset"><span>{% trans 'Cancel' %}</span></button>
+      </div>
+    </form>
+
+  <form method="post" action="" class="well form-horizontal">
+    {{ profile_form_address }}
+    {% csrf_token %}
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit"><span>{% trans 'Save' %}</span></button>
+      <button class="btn" type="reset"><span>{% trans 'Cancel' %}</span></button>
+    </div>
+  </form>
+
+
+  <form method="post" action="" class="well form-horizontal">
+    {{ profile_form_commdata }}
+    {% csrf_token %}
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit"><span>{% trans 'Save' %}</span></button>
+      <button class="btn" type="reset"><span>{% trans 'Cancel' %}</span></button>
+    </div>
+  </form>
+
+  <!--
+  <h2>{% trans "Profile" %} {{ user }}</h2>
+
+  <div class="puinlineform">
+    <div id="address_ro">
+      <dl class="field-list-wrapper">
+        <dt>{% trans "Address" %}</dt>
+        <dd>
+      <div name="inner" class="field-list">
+      {% include "inhouse/snippets/address.html" with address=user.get_profile.address %}
+      </div>
+          <div class="action-cell">
+            <a href="#address_form" class="btn">{% trans "Edit" %}</a>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div class="pujshidden" id="address_form">
+      <h3 class="spaces">{% trans "Address" %}</h3>
+        <form method="post" action="" class="well">
+          <h3 class="pujshidden">{% trans "Edit" %}</h3>
+          <div class="formErrors"></div>
+          <fieldset class="col2">
+            {{ profile_form_address }}
+        {% csrf_token %}
+            <input type="hidden" name="form_id" value="address_form" />
+          </fieldset>
+      <fieldset>
+            <div>
+              {% reqfields profile_form_address %}
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit"><span>{% trans 'Save' %}</span></button>
+                <button class="btn" type="reset"><span>{% trans 'Cancel' %}</span></button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+  </div>
+  <script type="text/javascript">
+    var profile_address = new pu.ui.InlineForm('address_form', 'address_ro');
+  </script>
+
+
+
+
+  <div class="puinlineform">
+    <div id="commdata_ro">
+      <dl class="field-list-wrapper">
+        <dt>{% trans "Communication" %}</dt>
+        <dd>
+      <div name="inner" class="field-list">
+      {% include "inhouse/snippets/communication.html" with commdata=user.get_profile.communication %}
+      </div>
+          <div class="action-cell">
+            <a href="#commdata_form" class="btn">{% trans "Edit" %}</a>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div class="pujshidden" id="commdata_form">
+      <h3 class="spaces">{% trans "Communication" %}</h3>
+        <form method="post" action="" class="well">
+          <h3 class="pujshidden">{% trans "Edit" %}</h3>
+          <div class="formErrors"></div>
+          <fieldset class="col2">
+            {{ profile_form_commdata }}
+            {% csrf_token %}
+            <input type="hidden" name="form_id" value="commdata_form" />
+          </fieldset>
+      <fieldset>
+            <div>
+              {% reqfields profile_form_commdata %}
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit"><span>{% trans 'Save' %}</span></button>
+                <button class="btn" type="reset"><span>{% trans 'Cancel' %}</span></button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+  </div>
+  <script type="text/javascript">
+    var profile_commdata = new pu.ui.InlineForm('commdata_form', 'commdata_ro');
+  </script>
+  -->
+
+
+{% endblock %}

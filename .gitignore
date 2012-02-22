@@ -1,0 +1,7 @@
+.DS_Store
+dev.db
+*.pyc
+*.tmproj
+*.mo
+settings_local.py
+/.idea

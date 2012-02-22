@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="formErrors">
+  {% if errors or general_errors %}
+    <div class="error-box">
+      {% if general_errors %}
+        {% for error in general_errors%}
+          <h5>{{ error }}</h5>
+        {% endfor %}
+      {% endif %}
+      {% if errors%}
+        <h5>{% trans "Please correct the following errors:" %}</h5>
+        <ul>
+          {% for label, error in errors %}
+            <li>{% if label %}<strong>{{ label }}: </strong>{% endif %}{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

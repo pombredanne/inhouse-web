@@ -1,0 +1,10 @@
+{% extends "inhouse/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %} - {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}<span class="divider">/</span><li><a href="{% url inhouse:home %}" title="{% trans 'To page:' %} {% trans "Dashboard" %}">{% trans "Dashboard" %}</a></li>{% endblock %}
+
+{% block content %}
+
+{% endblock %}

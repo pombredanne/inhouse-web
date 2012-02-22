@@ -1,0 +1,284 @@
+[
+  {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "first_name": "Adalbert",
+      "last_name": "Admin",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "admin@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 1,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 1,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 1,
+               "address": 1,
+               "communication": 1,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+      "username": "dev-uber-qs",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": true,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [1,2,3,4,5],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "uberqs@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 2,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 2,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 2,
+               "address": 2,
+               "communication": 2,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "auth.user",
+    "fields": {
+      "username": "dev-qs-employee",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [3],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "employee@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 3,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 3,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 3,
+               "address": 3,
+               "communication": 3,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "auth.user",
+    "fields": {
+      "username": "dev-qs-freelancer",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [4],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "freelancer@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 4,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 4,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 4,
+               "address": 4,
+               "communication": 4,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "auth.user",
+    "fields": {
+      "username": "dev-qs-manager",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": true,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [2],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "manager@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 5,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 5,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 5,
+               "address": 5,
+               "communication": 5,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "auth.user",
+    "fields": {
+      "username": "dev-qs-holiday",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2011-04-21 11:12:47",
+      "groups": [5],
+      "user_permissions": [],
+      "password": "sha1$228c2$632029dd30d7a06ce31b8765e43ccfb041b841c4",
+      "email": "holiday@example.com",
+      "date_joined": "2011-04-21 10:09:51"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "inhouse.address",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "name1": "Mustermann",
+               "street": "Musterstraße 123",
+               "zip_code": "53223",
+               "city": "Bonn",
+               "country": null}
+  },
+  {
+    "pk": 6,
+    "model": "inhouse.communication",
+    "fields": {"created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47",
+               "email": "mustermann@muster.de"}
+  },
+  {
+    "pk": 6,
+    "model": "inhouse.userprofile",
+    "fields": {"user": 6,
+               "address": 6,
+               "communication": 6,
+               "language": "en",
+               "created": "2011-04-21 11:12:47",
+               "modified": "2011-04-21 11:12:47"
+    }
+  }
+]
