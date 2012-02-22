@@ -1,0 +1,7 @@
+# Inhouse-Web: productive requirements
+
+http://www.djangoproject.com/download/1.4-beta-1/tarball/#egg=django
+pil==1.1.7
+fabric>=1.3
+-e git+git://github.com/hkage/django-issue-synchronisation.git#egg=django-issue-synchronisation
+-e git+https://github.com/andialbrecht/django-goog.git#egg=goog
