@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<script type="text/javascript">inhouse.pre_init();</script>
+<script type="text/javascript">pu.pre_init();</script>
 <noscript><div class="sitealert">{% trans "Enable JavaScript to use this site." %}</div></noscript>
 
   <header>
@@ -126,12 +126,12 @@
 {% if messages %}
 <script type="text/javascript">
 {% for message in messages %}
-  inhouse.ui.show_message('{{ message.tags }}', '{{ message|escapejs }}');
+  pu.ui.show_message('{{message.tags}}', '{{message|escapejs}}');
 {% endfor %}
 </script>
 {% endif %}
-<script type="text/javascript">inhouse.post_init();</script>
-<script type="text/javascript">inhouse.ui.initializeDatePickers('datepicker', '{{ request.LANGUAGE_CODE }}');</script>
+<script type="text/javascript">pu.post_init();</script>
+<script type="text/javascript">pu.ui.initializeDatePickers('datepicker', '{{ request.LANGUAGE_CODE }}');</script>
 
 </body>
 </html>

@@ -13,4 +13,5 @@ class InhouseError(StandardError):
 
 
 class InhouseModelError(InhouseError):
+    """Class for model errors."""
     pass
