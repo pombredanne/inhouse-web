@@ -408,6 +408,18 @@ class LoginForm(InhouseMixin, BaseAuthenticationForm):
     """Form used to login a user."""
 
 
+class ProjectDefaultStepForm(Form):
+    """Form to assign project step templates to a project."""
+
+    steps = forms.MultipleChoiceField(label=_(u'Steps'))
+
+    def set_step_choices(self):
+        bound_field = self['steps']
+        steps = models.ProjectStepTemplate.objects.all().order_by('name')
+        choices = [(step.id, step.name) for step in steps]
+        bound_field.field.choices = choices
+
+
 class UserProfileAddressForm(Address):
     """Minimal address form used in the user profile."""
 

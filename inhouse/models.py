@@ -633,7 +633,33 @@ class Customer(DefaultInfo):
         verbose_name_plural = _(u'Customers')
 
     def __unicode__(self):
-        return self.name
+        return self.get_join_name(' ')
+
+    def get_nametuple(self):
+        """Return all parts of the name as a tuple.
+
+        :returns: Tuple with name elements
+        """
+        t = []
+        if self.name1:
+            t.append(self.name1)
+        if self.name2:
+            t.append(self.name2)
+        if self.name3:
+            t.append(self.name3)
+        return tuple(t)
+
+    def get_join_name(self, join_char=''):
+        """Return only the name fields joined together.
+
+        :param join_char: The character used to join the name fields.
+        :returns: String with address name fields.
+        """
+        parts = [self.name1, self.name2, self.name3]
+        return join_char.join(cgi.escape(part) for part in parts
+                              if part is not None)
+
+    get_join_name_html = lambda me: me.get_join_name('<br />')
 
 
 class Day(DefaultInfo):

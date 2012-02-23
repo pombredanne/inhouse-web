@@ -10,6 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 #from library import format_minutes_to_time
 from inhouse import models
 
+
 # Custom actions
 
 def edit_bookings(modeladmin, request, queryset):
@@ -516,6 +517,7 @@ class ProjectAdmin(ModelAdmin):
                        'contact',
                        )}),
         (_(u'Billing'), {
+            'classes': ('collapse',),
             'fields': ('billing_type',
                        'commission_status',
                        'coefficient_saturday',
@@ -543,10 +545,9 @@ class ProjectAdmin(ModelAdmin):
     search_fields = ['name', 'description']
 
     def colored_status(self, project):
-        if project.status.id in (models.PROJECT_STATUS_CLOSED,
-                                 models.PROJECT_STATUS_DELETED):
+        if project.status in models.PROJECT_INACTIVE_STATUS:
             color = 'red'
-        elif project.status.id == models.PROJECT_STATUS_OPEN:
+        elif project.status in models.PROJECT_ACTIVE_STATUS:
             color = 'green'
         else:
             return project.status
@@ -902,7 +903,5 @@ admin.site.register(models.ProjectType, ProjectTypeAdmin)
 admin.site.register(models.ProjectUser, ProjectUserAdmin)
 # ProjectUserRate
 # Salutation
-# Software
-# SoftwareGroup
 admin.site.register(models.Timer, TimerAdmin)
 admin.site.register(models.UserProfile, UserProfileAdmin)

@@ -12,7 +12,7 @@ urlpatterns = patterns(
     url(r'accounts/login/$', 'login',
             {'template_name': 'inhouse/login.html',}, name='login'),
     url(r'^profile/$', 'profile_details', name='profile'),
-    #(r'^center/', include('inhouse.views.center_urls')),
+    url(r'^manager/', include('inhouse.views.manager_urls')),
 )
 
 urlpatterns += patterns(
