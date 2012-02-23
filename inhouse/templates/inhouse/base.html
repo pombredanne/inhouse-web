@@ -30,22 +30,26 @@
     {% if not user.is_anonymous %}
     <div class="navbar">
       <div class="navbar-inner">
-          <div class="container">
-            <a id="logo" href="/">Inhouse-Web</a>
-            <ul class="nav">
-              <li><a href="/">{% trans "Dashboard" %}</a></li>
-              <li><a href="#">{% trans "Projects" %}</a></li>
-              <li><a href="#">{% trans "Issues" %}</a></li>
-              {% if user.is_superuser or user.is_staff %}
-              <li><a href="{% url admin:index %}" target="_blank">{% trans "Administration" %}</a></li>
-              {% endif %}
-            </ul>
-            <ul class="nav pull-right">
-              <li><p>{{ user.email }}</p></li>
-              <li><a href="{% url inhouse:profile %}">{% trans "Profile" %}</a></li>
-              <li><a href="{% url inhouse:logout %}">{% trans "Log out" %}</a></li>
-            </ul>
-          </div>
+        <div class="container">
+          <a id="logo" href="/">Inhouse-Web</a>
+          <ul class="nav">
+            <li><a href="/">{% trans "Dashboard" %}</a></li>
+            <li><a href="#">{% trans "Projects" %}</a></li>
+            <li><a href="#">{% trans "Issues" %}</a></li>
+            {% if user.is_superuser or user.is_staff %}
+            <li><a href="{% url admin:index %}" target="_blank">{% trans "Administration" %}</a></li>
+            {% endif %}
+          </ul>
+          <ul class="nav pull-right">
+            <li><p>{{ user.email }}</p></li>
+            <li>
+              <div class="btn-group">
+                <a class="btn" href="{% url inhouse:profile %}"><i class="icon-user"></i> {% trans "Profile" %}</a>
+                <a class="btn" href="{% url inhouse:logout %}"><i class="icon-arrow-right"></i> {% trans "Log out" %}</a>
+              </div>
+            </li>
+          </ul>
+        </div>
         </div>
     </div>
     {% endif %}

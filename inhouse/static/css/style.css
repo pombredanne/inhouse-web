@@ -637,7 +637,7 @@ a.thumbnail:hover{border-color:#1155cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .login_form{margin:5em auto;width:32em;}
 .navbar{margin:0px;}
 ul.nav>li>a{font-weight:bold;}
-.navbar-inner{background:linear-gradient(#fafafa, #eaeaea);background:-moz-linear-gradient(#fafafa, #eaeaea);background:-webkit-linear-gradient(#fafafa, #eaeaea);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";background:linear-gradient(#fafafa, #eaeaea);z-index:1030;border-radius:0px;padding:0px;}
+.navbar-inner{background:linear-gradient(#fafafa, #eaeaea);background:-moz-linear-gradient(#fafafa, #eaeaea);background:-webkit-linear-gradient(#fafafa, #eaeaea);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";background:linear-gradient(#fafafa, #eaeaea);z-index:1030;border-radius:0px;padding:0 10px;}
 .navbar .nav>li>a{color:#2c2e38;text-shadow:none;}
 .navbar .nav>li>a:hover{color:#1155cc;cursor:pointer;text-decoration:none;}
 .toolbar{background-color:#FAFAFA;border-bottom:1px solid #DDD;box-shadow:0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1);color:#333333;height:40px;padding:0 20px;}
