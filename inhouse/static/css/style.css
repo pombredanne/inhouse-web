@@ -630,6 +630,7 @@ a.thumbnail:hover{border-color:#3366cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .hide{display:none;}
 .show{display:block;}
 .invisible{visibility:hidden;}
+.btn{padding:2px 10px 2px;}
 .form-horizontal .control-group{margin-bottom:10px;}
 .form-horizontal .control-group>label{float:left;width:140px;padding-top:5px;text-align:right;}
 .form-horizontal .controls{margin-left:160px;}
@@ -640,9 +641,9 @@ ul.nav>li>a{font-weight:bold;}
 .navbar .nav>li>a{color:#2c2e38;text-shadow:none;}
 .navbar .nav>li>a:hover{color:#3366cc;cursor:pointer;text-decoration:none;}
 .toolbar{background-color:#FAFAFA;border-bottom:1px solid #DDD;box-shadow:0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1);height:40px;padding:0 20px;}
-.toolbar .breadcrumb{margin:0;padding:0;background:none;border:none;font-weight:normal;line-height:40px;font-family:"proxima nova","proxima-nova","heletica-neue",sans-serif;}
+.toolbar .breadcrumb{margin:0;padding:0;background:none;border:none;font-weight:normal;line-height:40px;}
 .toolbar .breadcrumb>li>a{color:#626b73;text-decoration:none;}
-.toolbar .breadcrumb>li>a:hover{color:#44494f;text-decoration:none;}
+.toolbar .breadcrumb>li>a:hover{color:#3f454a;text-decoration:none;}
 .toolbar-fixed-top{position:fixed;top:40px;right:0;left:0;z-index:1030;}
 .goog-date-picker,.goog-date-picker th,.goog-date-picker td{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;}
 .goog-date-picker{-moz-user-focus:normal;-moz-user-select:none;position:absolute;border:1px solid #818085;float:left;padding:2px;color:#767676;background:#F6F6F6;cursor:default;z-index:1010;}
@@ -665,7 +666,7 @@ td.goog-date-picker-none-cont{text-align:center;}
 .goog-date-picker-month{width:12ex;}
 .goog-date-picker-year{width:6ex;}
 .goog-date-picker table{border-collapse:collapse;}
-.goog-date-picker-other-month{color:#888;}
+.goog-date-picker-other-month{color:#555555;}
 .goog-date-picker-wkend-start,.goog-date-picker-wkend-end{background:#eee;}
 td.goog-date-picker-selected{background:#c3d9ff;}
 .goog-date-picker-today{background:#9ab;font-weight:bold !important;border-color:#246 #9bd #9bd #246;color:#ffffff;}

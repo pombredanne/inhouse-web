@@ -184,6 +184,13 @@ def recreate_initial_data():
 
 
 @task
+def test():
+    """Runs all application unittests."""
+    django.settings_module('settings_debug')
+    local('python manage.py test inhouse')
+
+
+@task
 def todos(pylint=CMD_PYLINT):
     """Run pylint and only show todos."""
     lint(pylint, pylint_args='-f colorized -d W,C,R,I,E -e W0511 -r n')

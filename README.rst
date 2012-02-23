@@ -14,5 +14,12 @@ soft- and hardware, books and other material used in an IT service company.
 The application is written entirely in Python and uses the Django webframework.
 It is licensed under the `GNU General Public License v3`__.
 
+Running
+===========
+
+To run the application in development mode, simply type::
+
+ $ fab devserver
+
 
 __ http://www.gnu.org/licenses/gpl.html

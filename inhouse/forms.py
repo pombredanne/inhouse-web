@@ -2,6 +2,7 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm as BaseAuthenticationForm
+from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.forms.forms import BoundField as BaseBoundField
 from django.forms.util import flatatt
@@ -345,8 +346,31 @@ class CheckboxSelectMultipleWidget(forms.CheckboxSelectMultiple):
         return mark_safe(u'\n'.join(output))
 
 
+class IssueNumber(forms.CharField):
+    """Validates issue number values.
 
+    Possible values are e.g. '1234' or '#1234'
+    """
 
+    default_error_messages = {
+        'invalid': _(u'Enter a valid issue number.'),
+    }
+
+    def to_python(self, value):
+        if not isinstance(value, basestring):
+            value = str(value)
+        value = value.replace('#', '')
+        value = value.strip()
+        try:
+            value = int(value)
+        except (ValueError, TypeError):
+            value = 0
+        return value
+
+    def validate(self, value):
+        if not isinstance(value, (int, long)):
+            raise ValidationError(self.error_messages['invalid'])
+        return value
 
 
 class Address(ModelForm):
