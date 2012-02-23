@@ -1,0 +1,68 @@
+.navbar {
+  margin: 0px;
+}
+
+ul.nav>li>a {
+  font-weight: bold;
+}
+
+.navbar-inner {
+
+  background: linear-gradient(#FAFAFA,#EAEAEA);
+  background: -moz-linear-gradient(#FAFAFA,#EAEAEA);
+  background: -webkit-linear-gradient(#FAFAFA,#EAEAEA);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+  background: linear-gradient(#FAFAFA,#EAEAEA);
+  z-index: @zindexFixedNavbar;
+  //border-bottom: 1px solid #CACACA;
+  //box-shadow: 0 1px 0 rgba(255,255,255,0.4),0 0 10px rgba(0,0,0,0.1);
+  border-radius: 0px;
+  padding: 0px;
+}
+
+.navbar .nav > li > a {
+  color: #2c2e38;
+  text-shadow: none;
+}
+
+.navbar .nav > li > a:hover {
+  color: @linkColor;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.toolbar {
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #DDD;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4),0 0 10px rgba(0,0,0,0.1);
+  height: @navbarHeight;
+  padding: 0 20px;
+}
+
+.toolbar .breadcrumb {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font-weight: normal;
+  line-height: @navbarHeight;
+  font-family: "proxima nova","proxima-nova","heletica-neue",sans-serif;
+}
+
+.toolbar .breadcrumb>li>a {
+  color: #626b73;
+  text-decoration: none;
+}
+
+.toolbar .breadcrumb>li>a:hover {
+  color: #44494f;
+  text-decoration: none;
+}
+
+.toolbar-fixed-top {
+  position: fixed;
+  top: @navbarHeight;
+  right: 0;
+  left: 0;
+  z-index: @zindexFixedNavbar;
+}

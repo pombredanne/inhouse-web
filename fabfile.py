@@ -7,10 +7,13 @@ Notes:
  * To use the less compiler, install the 'NodeJS package manager' and run 'npm install --global less'
 """
 
+from cStringIO import StringIO
 import os
 import shutil
 import sys
 sys.path.insert(0, os.getcwd())
+import urllib2
+import zipfile
 
 from fabric import colors
 from fabric.api import *
@@ -28,11 +31,43 @@ PYLINT_MODULES = ['inhouse']
 INITIAL_FIXTURES = ['countries', 'groups', 'dev_users']
 
 BOOTSTRAP_PATH = os.path.abspath(os.path.join('assets', 'less', 'bootstrap'))
+BOOTSTRAP_URL = 'https://github.com/twitter/bootstrap/zipball/v2.0.1'
 
 django.settings_module('settings')
 from django.conf import settings as dj_settings
 
 
+def download_bootstrap():
+    """Retrieves the boostrap less files."""
+    if (os.path.isdir(BOOTSTRAP_PATH)
+        and os.path.isfile(os.path.join(BOOTSTRAP_PATH, 'bootstrap.less'))):
+        return
+    print 'Fetching %s' % BOOTSTRAP_URL
+    response = urllib2.urlopen(BOOTSTRAP_URL)
+    zfile = zipfile.ZipFile(StringIO(response.read()))
+    dest = os.path.abspath(os.path.join('assets', 'less'))
+    print 'Extracting to %s' % dest
+    topdir = zfile.namelist()[0]
+    lessdir = os.path.join(topdir, 'less')
+    zfile.extractall(dest,)
+    shutil.move(os.path.join(dest, lessdir), BOOTSTRAP_PATH)
+    shutil.rmtree(os.path.abspath(os.path.join('assets', 'less', topdir)))
+
+
+@task
+def compile_less():
+    """Compiles less scripts and outputs the css files."""
+    lessc_args = ''
+    download_bootstrap()
+    lessfile = os.path.abspath(os.path.join('assets', 'less', 'inhouse.less'))
+    cssfile = os.path.abspath(os.path.join('inhouse', 'static', 'css',
+                                           'style.css'))
+    print 'Compiling less files'
+    lessc_args += '--compress'
+    local(' '.join([CMD_LESSC, lessc_args, lessfile, cssfile]))
+
+
+@task
 def clean():
     """Cleans all temporary files."""
     for root, dirs, files in os.walk('.'):
@@ -41,6 +76,7 @@ def clean():
                 os.remove(os.path.join(root, name))
 
 
+@task
 def dev_db(assume_yes=False):
     """Recreate development database."""
     django.settings_module('settings_debug')
@@ -60,6 +96,7 @@ def dev_db(assume_yes=False):
     load_initial_data()
 
 
+@task
 def devserver(host='localhost', port=8000):
     """Runs the application in development mode."""
     #local('python manage.py runserver %s:%s' % (host, port))
@@ -67,32 +104,26 @@ def devserver(host='localhost', port=8000):
     local('python manage.py runserver %s:%s --settings=settings_debug' % (host, port))
 
 
+@task
 def disable_initial_data():
     django.settings_module('settings_debug')
     os.remove('inhouse/fixtures/initial_data.json')
 
 
+@task
 def enable_initial_data():
     django.settings_module('settings_debug')
     shutil.copy('inhouse/fixtures/_initial_data.json',
                 'inhouse/fixtures/initial_data.json')
 
 
+@task
 def errlint(pylint=CMD_PYLINT):
     """Run pylint to find only errors."""
     lint(pylint, pylint_args='-f colorized -d W,C,R,I -r n')
 
 
-def less():
-    """Compiles less scripts and outputs the css files."""
-    if not os.path.isdir(BOOTSTRAP_PATH):
-        os.makedirs(BOOTSTRAP_PATH)
-    #local('cd assets')
-    #local('curl https://github.com/twitter/bootstrap/tarball/v2.0.1 > bootstrap.tar.gz')
-    #local('tar xzf bootstrap.tar.gz')
-    local('lessc --compress assets/less/inhouse.less > inhouse/static/css/style.css')
-
-
+@task
 def lint(pylint=CMD_PYLINT, pylint_args=''):
     """Run pylint."""
     with settings(warn_only=True):  # catch pylint's exit status
@@ -114,6 +145,7 @@ def lint(pylint=CMD_PYLINT, pylint_args=''):
             print(colors.yellow('Pylint reported warnings.'))
 
 
+@task
 def load_initial_data():
     django.settings_module('settings_debug')
     enable_initial_data()
@@ -121,22 +153,26 @@ def load_initial_data():
     disable_initial_data()
 
 
+@task
 def mo():
     """Compiles all language files."""
     local('python manage.py compilemessages')
 
 
+@task
 def po():
     """Extracts all gettext strings."""
     local('python manage.py makemessages -a -i "env*"')
     local('python manage.py makemessages -d djangojs -a -i "env*"')
 
 
+@task
 def quicklint(pylint=CMD_PYLINT, pylint_args=''):
     """Run pylint with colorized output."""
     lint(pylint, pylint_args='-f colorized -r n ' + pylint_args)
 
 
+@task
 def recreate_initial_data():
     django.settings_module('settings_debug')
     if os.path.isfile('inhouse/fixtures/_initial_data.json'):
@@ -147,6 +183,7 @@ def recreate_initial_data():
     local('python manage.py dumpdata -a -e inhouse.AuthUserGroup -e contenttypes.ContentType --indent=2> inhouse/fixtures/_initial_data.json')
 
 
+@task
 def todos(pylint=CMD_PYLINT):
     """Run pylint and only show todos."""
     lint(pylint, pylint_args='-f colorized -d W,C,R,I,E -e W0511 -r n')

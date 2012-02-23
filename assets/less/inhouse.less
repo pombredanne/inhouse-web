@@ -1,14 +1,65 @@
 @import "bootstrap/bootstrap.less";
 
+@import "variables.less";
+@import "forms.less";
+@import "navbar.less";
 @import "google.less";
 
-// Variables
 
-@linkColor: #36C;
-
-
-// Elements
+body {
+  color: #4b5157;
+  -webkit-font-smoothing: antialiased;
+  font-family: @baseFontFamily;
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: @grayDarker;
+}
+
+.container {
+  width: 100%;
+}
+
+.site {
+  padding: 90px 0 0 0;
+  width: 100%;
+}
+
+#content {
+  padding: 10px 20px;
+}
+
+#toolbox {
+  -webkit-box-shadow: 0 0 6px #808080;
+  -moz-box-shadow: 0 0 6px #808080;
+  box-shadow: 0 0 6px #808080;
+  bottom: -1px;
+  position: fixed;
+  left: -1px;
+  z-index: 90;
+}
+
+#logo {
+  display: block;
+  color: #666;
+  float: left;
+  //font-family: 'Trebuchet MS', Arial, Verdana, sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  //margin: 35px 25px 10px 15px;
+  margin: 10px 20px;
+  //text-indent: -1000em;
+
+}
+
+#logo {
+ color: #444;
+ -webkit-transition-property: color;
+ -webkit-transition-duration: .50s, .50s;
+ -webkit-transition-timing-function: linear, ease-in;
+}
+
+#logo:hover {
+  color: @linkColor;
+  text-decoration: none;
 }
