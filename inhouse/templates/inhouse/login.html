@@ -16,8 +16,10 @@
 
 <div class="row">
   <div class="login_form" id="loginbox" style="display:none;">
-    <div><h3>{% trans "Log in" %}</h3></div>
     <form method="post" action="{% url inhouse:login %}" id="formLogin" class="well">
+      <div id="logo" style="float:right;"></div>
+      <div><h3>{% trans "Log in" %}</h3></div>
+      <p/>
       {% csrf_token %}
       {% if form.errors %}
         <div class="alert alert-error">
@@ -27,6 +29,9 @@
       {% endif %}
       {{ form }}
       {% csrf_token %}
+      <p class="small">
+        <a href="">{% trans "Lost your password?" %}</a>
+      </p>
       <button type="submit" class="btn btn-primary"><span>{% trans 'Log in' %}</span></button>
     </form>
     <div style="float:right;">{% reqfields form %}</div>

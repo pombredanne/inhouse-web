@@ -630,8 +630,8 @@ a.thumbnail:hover{border-color:#1155cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .hide{display:none;}
 .show{display:block;}
 .invisible{visibility:hidden;}
-.btn{padding:2px 10px 2px;}
-.form-horizontal .control-group{margin-bottom:10px;}
+.control-group{margin-bottom:4px;}
+.form-horizontal .control-group{margin-bottom:8px;}
 .form-horizontal .control-group>label{float:left;width:140px;padding-top:5px;text-align:right;}
 .form-horizontal .controls{margin-left:160px;}
 .login_form{margin:5em auto;width:32em;}
@@ -672,6 +672,7 @@ td.goog-date-picker-selected{background:#c3d9ff;}
 .goog-date-picker-today{background:#9ab;font-weight:bold !important;border-color:#246 #9bd #9bd #246;color:#ffffff;}
 body{color:#4b5157;-webkit-font-smoothing:antialiased;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 h1,h2,h3,h4,h5,h6{color:#222222;}
+.small,small{font-size:85%;margin-top:0;}
 .container{width:100%;}
 .site{padding:90px 0 0 0;width:100%;}
 #content{padding:10px 20px;}

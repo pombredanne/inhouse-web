@@ -27,35 +27,32 @@
 <noscript><div class="sitealert">{% trans "Enable JavaScript to use this site." %}</div></noscript>
 
   <header>
+    {% if not user.is_anonymous %}
     <div class="navbar">
       <div class="navbar-inner">
           <div class="container">
             <a id="logo" href="/">Inhouse-Web</a>
             <ul class="nav">
-              {% if not user.is_anonymous %}
               <li><a href="/">{% trans "Dashboard" %}</a></li>
               <li><a href="#">{% trans "Projects" %}</a></li>
               <li><a href="#">{% trans "Issues" %}</a></li>
-              {% else %}
-              <li class="active"><a href="/">{% trans "Login" %}</a></li>
-              {% endif %}
               {% if user.is_superuser or user.is_staff %}
               <li><a href="{% url admin:index %}" target="_blank">{% trans "Administration" %}</a></li>
               {% endif %}
             </ul>
-            {% if not user.is_anonymous %}
             <ul class="nav pull-right">
               <li><p>{{ user.email }}</p></li>
               <li><a href="{% url inhouse:profile %}">{% trans "Profile" %}</a></li>
               <li><a href="{% url inhouse:logout %}">{% trans "Log out" %}</a></li>
             </ul>
-            {% endif %}
           </div>
         </div>
     </div>
+    {% endif %}
 
   </header>
 
+  {% if not user.is_anonymous %}
   <section class="toolbar">
     {% if not user.is_anonymous %}
       <div class="container">
@@ -69,13 +66,14 @@
       </div>
     {% endif %}
   </section>
+  {% endif %}
 
   <div id="notifications" class="notification-box border-radius-bottom pujshidden"></div>
 
   <section id="content">
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">Test</div>
+        <div class="span3">&nbsp;</div>
         <div class="span7">
           {% block content %}CONTENT GOES HERE{% endblock %}
         </div>
@@ -92,9 +90,11 @@
     </div>
   </section>
 
+  <!--
   <section id="toolbox">
     Dies ist ein Test
   </section>
+  -->
 
 
   <!--<div id="main" role="main">-->
@@ -106,11 +106,12 @@
     </div>
   </div>
   -->
+  {% if not user.is_anonymous %}
   <hr>
   <footer class="footer">
     {% include "inhouse/snippets/footer.html" %}
   </footer>
-
+  {% endif %}
 
 <!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
