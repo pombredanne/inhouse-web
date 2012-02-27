@@ -14,6 +14,41 @@ soft- and hardware, books and other material used in an IT service company.
 The application is written entirely in Python and uses the Django webframework.
 It is licensed under the `GNU General Public License v3`__.
 
+Installation
+============
+
+The first step will be to get the current sources. You can ether get a
+snapshot by installing Inhouse-Web via pip oder easy_install::
+
+ $ pip install inhouse-web
+ $ easy_install inhouse-web
+
+or you can checkout the latest sources from the repository::
+
+ $ git clone git://github.com/hkage/inhouse-web.git
+
+If you checked out the latest sources, you should install the requirements
+manually::
+
+ $ pip install -r requirements/stable-req.txt
+
+The tools needed for development can be installed by::
+
+ $ pip install -r requirements/dev-req.txt
+
+Settings
+========
+
+Inhouse-Web uses a handful of settings, that are used within the booking and
+especially the invoice workflow. The following settings are used:
+
+ * DEFAULT_COEFFICIENT_SATURDAY: (default 1.25) The multiplier used for bookings
+   created on saturday. E.g. 5 bookable hours created on a saturday will be
+   calculated as 6.25 hours.
+ * DEFAULT_COEFFICIENT_SUNDAY: (default 1.5) The multiplier for bookings created
+   on sundays.
+ * DEFAULT_COEFFICIENT_PROJECT_STEP:
+
 Running
 ===========
 
