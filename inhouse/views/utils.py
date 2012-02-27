@@ -2,6 +2,8 @@
 
 """Utility and helper functions for views."""
 
+from django.contrib import messages
+from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 

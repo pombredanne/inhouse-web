@@ -8,7 +8,5 @@ from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns(
     'inhouse.views.admin',
-    #url(r'^$', 'index', name='certids_index'),
-    #url(r'^(\d+)/$', 'details', name='certid_details'),
     url(r'^(\d+)/default_steps', 'default_steps', name='default_steps'),
     )

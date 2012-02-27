@@ -887,6 +887,22 @@ class ProjectStep(DefaultInfo):
     def __unicode__(self):
         return self.name
 
+    @classmethod
+    def copy(cls, other):
+        """Creates a copy of a step."""
+        new = ProjectStep()
+        new.name = other.name
+        new.description = other.description
+        new.status = STEP_STATUS_OPEN
+        return new
+
+    def next_position(self):
+        """Set the next free position for a project`s step."""
+        steps = ProjectStep.objects.filter(project=self.project)
+        # Automatically determine the fields new position
+        max = steps.aggregate(models.Max('position'))['position__max'] or 0
+        self.position = max + 1
+
 
 class ProjectStepTemplate(DefaultInfo):
     """Defines a default step, that can be assigned with projects."""
