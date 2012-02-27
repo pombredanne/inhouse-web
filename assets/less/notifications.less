@@ -1,0 +1,69 @@
+// Notifcations
+
+div.notification-box {
+  position: fixed;
+  //left: 300px;
+  //width: 490px;
+  width: 50%;
+  top: -400;
+  border-top: none;
+  padding: 0 0 20px 58px;
+  z-index: 10000;
+  opacity: .9;
+}
+
+#notifications>ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#notifications>ul>li {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  .border-radius(4px);
+}
+
+#notifications .close {
+  font-size: 16px;
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 18px;
+}
+
+li.success {
+  background-color: @successBackground;
+  border: 1px solid @successBorder;
+}
+li.success,
+li.success .heading {
+  color: @successText;
+}
+li.warning {
+  background-color: @warningBackground;
+  border: 1px solid @warningBorder;
+}
+li.warning .heading {
+  color: @warningText;
+}
+li.danger,
+li.error {
+  background-color: @errorBackground;
+  border: 1px solid @errorBorder;
+}
+li.danger,
+li.error,
+li.danger li.heading,
+li.error li.heading {
+  color: @errorText;
+}
+li.info {
+  background-color: @infoBackground;
+  border: 1px solid @infoBorder;
+}
+li.info,
+li.info li.heading {
+  color: @infoText;
+}

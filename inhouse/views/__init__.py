@@ -4,8 +4,10 @@
 
 import time
 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login as django_login
+from django.utils.translation import ugettext_lazy as _
 
 from inhouse import forms, models
 from inhouse.exceptions import InhouseModelError
@@ -35,6 +37,9 @@ def login(request, *args, **kwargs):
 
 @login_required
 def profile_details(request):
+    messages.success(request, _(u'This is a success messages'))
+    messages.warning(request, _(u'This is a warning'))
+    messages.error(request, _(u'This is an error'))
     try:
         profile = models.UserProfile.new(user=request.user)
     except InhouseModelError:
