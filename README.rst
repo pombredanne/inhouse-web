@@ -42,12 +42,12 @@ Settings
 Inhouse-Web uses a handful of settings, that are used within the booking and
 especially the invoice workflow. The following settings are used:
 
- * DEFAULT_COEFFICIENT_SATURDAY: (default 1.25) The multiplier used for bookings
+ * `DEFAULT_COEFFICIENT_SATURDAY`: (default 1.25) The multiplier used for bookings
    created on saturday. E.g. 5 bookable hours created on a saturday will be
    calculated as 6.25 hours.
- * DEFAULT_COEFFICIENT_SUNDAY: (default 1.5) The multiplier for bookings created
+ * `DEFAULT_COEFFICIENT_SUNDAY`: (default 1.5) The multiplier for bookings created
    on sundays.
- * DEFAULT_COEFFICIENT_PROJECT_STEP:
+ * `DEFAULT_COEFFICIENT_PROJECT_STEP`:
 
 Running
 ===========
