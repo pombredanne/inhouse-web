@@ -1,5 +1,6 @@
 # Django settings for inhouse project.
 
+import decimal
 import os
 
 HERE = os.path.abspath(os.path.dirname(__file__))
@@ -225,6 +226,6 @@ if DEBUG:
 # Inhouse settings
 
 # Invoice coefficients
-DEFAULT_COEFFICIENT_SATURDAY = Decimal('1.25')
-DEFAULT_COEFFICIENT_SUNDAY = Decimal('1.5')
-DEFAULT_COEFFICIENT_PROJECT_STEP = Decimal('1.0')
+DEFAULT_COEFFICIENT_SATURDAY = decimal.Decimal('1.25')
+DEFAULT_COEFFICIENT_SUNDAY = decimal.Decimal('1.5')
+DEFAULT_COEFFICIENT_PROJECT_STEP = decimal.Decimal('1.0')
