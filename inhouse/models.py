@@ -2,6 +2,7 @@
 
 """Model definitions."""
 
+import calendar
 import cgi
 import datetime
 
@@ -19,7 +20,6 @@ from inhouse.exceptions import InhouseModelError
 LANGUAGE_CHOICES = [(x[0], _(x[1])) for x in settings.LANGUAGES]
 
 # Project status
-
 PROJECT_STATUS_OPEN = 1
 PROJECT_STATUS_DELETED = 2
 PROJECT_STATUS_IDLE = 3
@@ -57,7 +57,6 @@ PRIORITY_CHOICES = (
     (2, _(u'Normal')),
     (3, _(u'High'))
 )
-
 
 # Monkey-patch DEFAULT_NAMES for Meta options. Otherwise
 # db_column_prefix would raise an error.
@@ -424,6 +423,18 @@ class Booking(DefaultInfo):
 
     #def __unicode__(self):
         #return self.get_title()
+
+    #@models.permalink
+    #def get_absolute_url(self):
+        #return '/time/edit/%d' % self.id
+        #return reverse('inhouse.views.edit_booking', self.id, [])
+        #return ('inhouse.views.edit_booking', [str(self.id)])
+
+    def next_position(self):
+        """Set the next available position, depending on the day."""
+        bookings = Booking.objects.filter(day=self.day)
+        self.position = (bookings.aggregate(models.Max('position'))[
+            'position__max'] or 0) + 1
 
 
 class CommissionStatus(models.Model):
@@ -828,6 +839,57 @@ class Project(DefaultInfo):
     def __unicode__(self):
         return self.name
 
+    @classmethod
+    def copy(cls, other):
+        """Creates a copy of an existing project instance."""
+        new = Project()
+        if name is None:
+            new.name = u'%s \'%s\'' % (_(u'Copy of'), other.name)
+        else:
+            new.name = name
+        new.key = u''
+        new.description = u''
+        new.customer = other.customer
+        new.company = other.company
+        new.contact = other.contact
+        new.type = other.type
+        new.status = other.status
+        new.department = other.department
+        new.manager = other.manager
+        new.billing_type = other.billing_type
+        new.commission_status = other.commission_status
+        new.coefficient_saturday = other.coefficient_saturday
+        new.coefficient_sunday = other.coefficient_sunday
+        return new
+
+    #@models.permalink
+    #def get_absolute_url(self):
+        #return ('inhouse.views.show_project', [str(self.id)])
+
+    def get_coefficient(self, step=None, day=None):
+        """Returns the billing coefficient for each booking.
+
+        :param step:
+        :param day:
+        :returns: Coefficient as integer/float
+        """
+        co_x = 1
+        co_y = 1
+        if day:
+            if day.date.weekday() == calendar.SATURDAY:
+                if self.coefficient_saturday:
+                    co_x = self.coefficient_saturday
+                else:
+                    co_x = settings.DEFAULT_COEFFICIENT_SATURDAY
+            elif day.date.weekday() == calendar.SUNDAY:
+                if self.coefficient_sunday:
+                    co_x = self.coefficient_sunday
+                else:
+                    co_x = settings.DEFAULT_COEFFICIENT_SUNDAY
+        if step and step.coefficient:
+            co_y = step.coefficient
+        return co_x * co_y
+
 
 class ProjectRate(DefaultInfo):
     project = models.ForeignKey(Project, db_column='prid',
@@ -1075,6 +1137,66 @@ class Timer(DefaultInfo):
         db_column_prefix = u'tim_'
         verbose_name = _(u'Timer')
         verbose_name_plural = _(u'Timer')
+
+    def clear(self):
+        """Resets the timer."""
+        self.active = False
+        self.duration = 0
+
+    def get_elapsed_time(self):
+        """Returns the elapsed time.
+
+        :returns: Elapsed time in seconds
+        """
+        if self.duration > 0:
+            if self.active:
+                return self.duration + (datetime.datetime.now() - self.start_time).seconds
+            else:
+                return self.duration
+        else:
+            if self.active:
+                return (datetime.datetime.now() - self.start_time).seconds
+            else:
+                return 0
+
+    def get_time_tuple(self):
+        """Returns a split time information in hours and minutes.
+
+        :return: Tuple with hours, minutes
+        """
+        minutes = self.duration / 60
+        if minutes <= 15:
+            # Less then 15 minutes count as 15 minutes
+            return 0, 15
+        h = minutes // 60
+        minutes -= h * 60
+        scrap = minutes % 15
+        m = (minutes // 15) * 15
+        if scrap >= 7.5:
+            m += 15
+        if m >= 60:
+            h += m // 60
+            m -= m % 60
+        return h, m
+
+    def start(self, title=None):
+        """Start a timer.
+
+        :param title: Title of the timer
+        """
+        if title:
+            self.title = title
+        self.start_time = datetime.datetime.now()
+        self.active = True
+
+    def stop(self):
+        """Stop the timer."""
+        end_time = datetime.datetime.now()
+        self.active = False
+        if not self.start_time:
+            self.duration = 0
+        else:
+            self.duration += (end_time - self.start_time).seconds
 
 
 class UserProfile(DefaultInfo):

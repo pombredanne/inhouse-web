@@ -221,3 +221,10 @@ if DEBUG:
                        'inhouse.middleware.AjaxDebugMiddleware',):
         if middleware not in MIDDLEWARE_CLASSES:
             MIDDLEWARE_CLASSES += (middleware,)
+
+# Inhouse settings
+
+# Invoice coefficients
+DEFAULT_COEFFICIENT_SATURDAY = Decimal('1.25')
+DEFAULT_COEFFICIENT_SUNDAY = Decimal('1.5')
+DEFAULT_COEFFICIENT_PROJECT_STEP = Decimal('1.0')
