@@ -45,7 +45,6 @@ def copy_project(request, project_id):
         p.save()
         if with_steps:
             # Copy the project steps
-            #steps = models.ProjectStep.objects.filter(project=project)
             for step in steps:
                 new = models.ProjectStep.copy(step)
                 new.project = p
@@ -53,15 +52,12 @@ def copy_project(request, project_id):
                 new.save()
         if with_members:
             # Copy all project members
-            #members = models.ProjectUser.objects.filter(project=project)
             for project_user in members:
                 new = models.ProjectUser()
                 new.project = p
                 new.user = project_user.user
                 if project_user.default_step:
                     # Retrieve the user's default step, if possible
-                    #query = models.ProjectStep.objects.get_by_name(
-                    #    p, project_user.default_step.name)
                     query = models.ProjectStep.objects.filter(
                         project=p, name=project_user.default_step.name)
                     if query.count() == 1:
@@ -71,8 +67,6 @@ def copy_project(request, project_id):
                 new.save()
         if with_trackers:
             # Copy assigned issue trackers
-            #project_trackers = models.ProjectTracker.objects.filter(
-                #project=project)
             for project_tracker in trackers:
                 new = models.ProjectTracker()
                 new.project = p

@@ -17,13 +17,18 @@ It is licensed under the `GNU General Public License v3`__.
 Installation
 ============
 
-The first step will be to get the current sources. You can ether get a
-snapshot by installing Inhouse-Web via pip oder easy_install::
+Via setup tools
+---------------
+
+You can get the latest release via pip oder easy_install::
 
  $ pip install inhouse-web
  $ easy_install inhouse-web
 
-or you can checkout the latest sources from the repository::
+From source
+-----------
+
+Or you can checkout the latest sources from the repository::
 
  $ git clone git://github.com/hkage/inhouse-web.git
 
