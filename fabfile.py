@@ -27,8 +27,7 @@ CMD_LESSC = 'lessc'
 
 PYLINT_MODULES = ['inhouse']
 
-#INITIAL_FIXTURES = ['groups', 'permissions', 'dev_users']
-INITIAL_FIXTURES = ['countries', 'groups', 'dev_users']
+INITIAL_FIXTURES = ['countries', 'groups', 'permissions', 'dev_users']
 
 BOOTSTRAP_PATH = os.path.abspath(os.path.join('assets', 'less', 'bootstrap'))
 BOOTSTRAP_URL = 'https://github.com/twitter/bootstrap/zipball/v2.0.1'

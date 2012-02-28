@@ -3352,7 +3352,7 @@
     "fields": {
       "codename": "add_group", 
       "name": "Can add group", 
-      "content_type": 3
+      "content_type": 1
     }
   }, 
   {
@@ -3361,7 +3361,7 @@
     "fields": {
       "codename": "change_group", 
       "name": "Can change group", 
-      "content_type": 3
+      "content_type": 1
     }
   }, 
   {
@@ -3370,7 +3370,7 @@
     "fields": {
       "codename": "delete_group", 
       "name": "Can delete group", 
-      "content_type": 3
+      "content_type": 1
     }
   }, 
   {
@@ -3379,7 +3379,7 @@
     "fields": {
       "codename": "add_permission", 
       "name": "Can add permission", 
-      "content_type": 2
+      "content_type": 3
     }
   }, 
   {
@@ -3388,7 +3388,7 @@
     "fields": {
       "codename": "change_permission", 
       "name": "Can change permission", 
-      "content_type": 2
+      "content_type": 3
     }
   }, 
   {
@@ -3397,7 +3397,7 @@
     "fields": {
       "codename": "delete_permission", 
       "name": "Can delete permission", 
-      "content_type": 2
+      "content_type": 3
     }
   }, 
   {
@@ -3406,7 +3406,7 @@
     "fields": {
       "codename": "add_user", 
       "name": "Can add user", 
-      "content_type": 1
+      "content_type": 2
     }
   }, 
   {
@@ -3415,7 +3415,7 @@
     "fields": {
       "codename": "change_user", 
       "name": "Can change user", 
-      "content_type": 1
+      "content_type": 2
     }
   }, 
   {
@@ -3424,7 +3424,7 @@
     "fields": {
       "codename": "delete_user", 
       "name": "Can delete user", 
-      "content_type": 1
+      "content_type": 2
     }
   }, 
   {
@@ -3460,7 +3460,7 @@
     "fields": {
       "codename": "add_address", 
       "name": "Can add Address", 
-      "content_type": 23
+      "content_type": 13
     }
   }, 
   {
@@ -3469,7 +3469,7 @@
     "fields": {
       "codename": "change_address", 
       "name": "Can change Address", 
-      "content_type": 23
+      "content_type": 13
     }
   }, 
   {
@@ -3478,7 +3478,7 @@
     "fields": {
       "codename": "delete_address", 
       "name": "Can delete Address", 
-      "content_type": 23
+      "content_type": 13
     }
   }, 
   {
@@ -3487,7 +3487,7 @@
     "fields": {
       "codename": "add_addressgroup", 
       "name": "Can add Address group", 
-      "content_type": 34
+      "content_type": 19
     }
   }, 
   {
@@ -3496,7 +3496,7 @@
     "fields": {
       "codename": "change_addressgroup", 
       "name": "Can change Address group", 
-      "content_type": 34
+      "content_type": 19
     }
   }, 
   {
@@ -3505,7 +3505,7 @@
     "fields": {
       "codename": "delete_addressgroup", 
       "name": "Can delete Address group", 
-      "content_type": 34
+      "content_type": 19
     }
   }, 
   {
@@ -3514,7 +3514,7 @@
     "fields": {
       "codename": "add_authusergroup", 
       "name": "Can add auth user group", 
-      "content_type": 17
+      "content_type": 26
     }
   }, 
   {
@@ -3523,7 +3523,7 @@
     "fields": {
       "codename": "change_authusergroup", 
       "name": "Can change auth user group", 
-      "content_type": 17
+      "content_type": 26
     }
   }, 
   {
@@ -3532,7 +3532,7 @@
     "fields": {
       "codename": "delete_authusergroup", 
       "name": "Can delete auth user group", 
-      "content_type": 17
+      "content_type": 26
     }
   }, 
   {
@@ -3541,7 +3541,7 @@
     "fields": {
       "codename": "add_billingtype", 
       "name": "Can add Billing type", 
-      "content_type": 30
+      "content_type": 15
     }
   }, 
   {
@@ -3550,7 +3550,7 @@
     "fields": {
       "codename": "change_billingtype", 
       "name": "Can change Billing type", 
-      "content_type": 30
+      "content_type": 15
     }
   }, 
   {
@@ -3559,7 +3559,7 @@
     "fields": {
       "codename": "delete_billingtype", 
       "name": "Can delete Billing type", 
-      "content_type": 30
+      "content_type": 15
     }
   }, 
   {
@@ -3568,7 +3568,7 @@
     "fields": {
       "codename": "add_booking", 
       "name": "Can add Booking", 
-      "content_type": 28
+      "content_type": 16
     }
   }, 
   {
@@ -3577,7 +3577,7 @@
     "fields": {
       "codename": "change_booking", 
       "name": "Can change Booking", 
-      "content_type": 28
+      "content_type": 16
     }
   }, 
   {
@@ -3586,7 +3586,7 @@
     "fields": {
       "codename": "delete_booking", 
       "name": "Can delete Booking", 
-      "content_type": 28
+      "content_type": 16
     }
   }, 
   {
@@ -3595,7 +3595,7 @@
     "fields": {
       "codename": "add_commissionstatus", 
       "name": "Can add Commission status", 
-      "content_type": 25
+      "content_type": 33
     }
   }, 
   {
@@ -3604,7 +3604,7 @@
     "fields": {
       "codename": "change_commissionstatus", 
       "name": "Can change Commission status", 
-      "content_type": 25
+      "content_type": 33
     }
   }, 
   {
@@ -3613,7 +3613,7 @@
     "fields": {
       "codename": "delete_commissionstatus", 
       "name": "Can delete Commission status", 
-      "content_type": 25
+      "content_type": 33
     }
   }, 
   {
@@ -3622,7 +3622,7 @@
     "fields": {
       "codename": "add_communication", 
       "name": "Can add Communication data", 
-      "content_type": 40
+      "content_type": 20
     }
   }, 
   {
@@ -3631,7 +3631,7 @@
     "fields": {
       "codename": "change_communication", 
       "name": "Can change Communication data", 
-      "content_type": 40
+      "content_type": 20
     }
   }, 
   {
@@ -3640,7 +3640,7 @@
     "fields": {
       "codename": "delete_communication", 
       "name": "Can delete Communication data", 
-      "content_type": 40
+      "content_type": 20
     }
   }, 
   {
@@ -3649,7 +3649,7 @@
     "fields": {
       "codename": "add_company", 
       "name": "Can add Company", 
-      "content_type": 37
+      "content_type": 38
     }
   }, 
   {
@@ -3658,7 +3658,7 @@
     "fields": {
       "codename": "change_company", 
       "name": "Can change Company", 
-      "content_type": 37
+      "content_type": 38
     }
   }, 
   {
@@ -3667,7 +3667,7 @@
     "fields": {
       "codename": "delete_company", 
       "name": "Can delete Company", 
-      "content_type": 37
+      "content_type": 38
     }
   }, 
   {
@@ -3676,7 +3676,7 @@
     "fields": {
       "codename": "add_contact", 
       "name": "Can add Contact", 
-      "content_type": 16
+      "content_type": 25
     }
   }, 
   {
@@ -3685,7 +3685,7 @@
     "fields": {
       "codename": "change_contact", 
       "name": "Can change Contact", 
-      "content_type": 16
+      "content_type": 25
     }
   }, 
   {
@@ -3694,7 +3694,7 @@
     "fields": {
       "codename": "delete_contact", 
       "name": "Can delete Contact", 
-      "content_type": 16
+      "content_type": 25
     }
   }, 
   {
@@ -3703,7 +3703,7 @@
     "fields": {
       "codename": "add_country", 
       "name": "Can add Country", 
-      "content_type": 18
+      "content_type": 27
     }
   }, 
   {
@@ -3712,7 +3712,7 @@
     "fields": {
       "codename": "change_country", 
       "name": "Can change Country", 
-      "content_type": 18
+      "content_type": 27
     }
   }, 
   {
@@ -3721,7 +3721,7 @@
     "fields": {
       "codename": "delete_country", 
       "name": "Can delete Country", 
-      "content_type": 18
+      "content_type": 27
     }
   }, 
   {
@@ -3730,7 +3730,7 @@
     "fields": {
       "codename": "add_customer", 
       "name": "Can add Customer", 
-      "content_type": 38
+      "content_type": 18
     }
   }, 
   {
@@ -3739,7 +3739,7 @@
     "fields": {
       "codename": "change_customer", 
       "name": "Can change Customer", 
-      "content_type": 38
+      "content_type": 18
     }
   }, 
   {
@@ -3748,7 +3748,7 @@
     "fields": {
       "codename": "delete_customer", 
       "name": "Can delete Customer", 
-      "content_type": 38
+      "content_type": 18
     }
   }, 
   {
@@ -3757,7 +3757,7 @@
     "fields": {
       "codename": "add_day", 
       "name": "Can add Day", 
-      "content_type": 33
+      "content_type": 14
     }
   }, 
   {
@@ -3766,7 +3766,7 @@
     "fields": {
       "codename": "change_day", 
       "name": "Can change Day", 
-      "content_type": 33
+      "content_type": 14
     }
   }, 
   {
@@ -3775,7 +3775,7 @@
     "fields": {
       "codename": "delete_day", 
       "name": "Can delete Day", 
-      "content_type": 33
+      "content_type": 14
     }
   }, 
   {
@@ -3784,7 +3784,7 @@
     "fields": {
       "codename": "add_department", 
       "name": "Can add Department", 
-      "content_type": 27
+      "content_type": 35
     }
   }, 
   {
@@ -3793,7 +3793,7 @@
     "fields": {
       "codename": "change_department", 
       "name": "Can change Department", 
-      "content_type": 27
+      "content_type": 35
     }
   }, 
   {
@@ -3802,7 +3802,7 @@
     "fields": {
       "codename": "delete_department", 
       "name": "Can delete Department", 
-      "content_type": 27
+      "content_type": 35
     }
   }, 
   {
@@ -3811,7 +3811,7 @@
     "fields": {
       "codename": "add_departmentuser", 
       "name": "Can add Department member", 
-      "content_type": 14
+      "content_type": 24
     }
   }, 
   {
@@ -3820,7 +3820,7 @@
     "fields": {
       "codename": "change_departmentuser", 
       "name": "Can change Department member", 
-      "content_type": 14
+      "content_type": 24
     }
   }, 
   {
@@ -3829,7 +3829,7 @@
     "fields": {
       "codename": "delete_departmentuser", 
       "name": "Can delete Department member", 
-      "content_type": 14
+      "content_type": 24
     }
   }, 
   {
@@ -3838,7 +3838,7 @@
     "fields": {
       "codename": "add_invoice", 
       "name": "Can add Invoice", 
-      "content_type": 36
+      "content_type": 17
     }
   }, 
   {
@@ -3847,7 +3847,7 @@
     "fields": {
       "codename": "change_invoice", 
       "name": "Can change Invoice", 
-      "content_type": 36
+      "content_type": 17
     }
   }, 
   {
@@ -3856,7 +3856,7 @@
     "fields": {
       "codename": "delete_invoice", 
       "name": "Can delete Invoice", 
-      "content_type": 36
+      "content_type": 17
     }
   }, 
   {
@@ -3865,7 +3865,7 @@
     "fields": {
       "codename": "add_news", 
       "name": "Can add News", 
-      "content_type": 31
+      "content_type": 37
     }
   }, 
   {
@@ -3874,7 +3874,7 @@
     "fields": {
       "codename": "change_news", 
       "name": "Can change News", 
-      "content_type": 31
+      "content_type": 37
     }
   }, 
   {
@@ -3883,7 +3883,7 @@
     "fields": {
       "codename": "delete_news", 
       "name": "Can delete News", 
-      "content_type": 31
+      "content_type": 37
     }
   }, 
   {
@@ -3892,7 +3892,7 @@
     "fields": {
       "codename": "add_newsgroup", 
       "name": "Can add News group", 
-      "content_type": 24
+      "content_type": 32
     }
   }, 
   {
@@ -3901,7 +3901,7 @@
     "fields": {
       "codename": "change_newsgroup", 
       "name": "Can change News group", 
-      "content_type": 24
+      "content_type": 32
     }
   }, 
   {
@@ -3910,7 +3910,7 @@
     "fields": {
       "codename": "delete_newsgroup", 
       "name": "Can delete News group", 
-      "content_type": 24
+      "content_type": 32
     }
   }, 
   {
@@ -3919,7 +3919,7 @@
     "fields": {
       "codename": "add_project", 
       "name": "Can add Project", 
-      "content_type": 41
+      "content_type": 22
     }
   }, 
   {
@@ -3928,7 +3928,7 @@
     "fields": {
       "codename": "change_project", 
       "name": "Can change Project", 
-      "content_type": 41
+      "content_type": 22
     }
   }, 
   {
@@ -3937,7 +3937,7 @@
     "fields": {
       "codename": "delete_project", 
       "name": "Can delete Project", 
-      "content_type": 41
+      "content_type": 22
     }
   }, 
   {
@@ -3946,7 +3946,7 @@
     "fields": {
       "codename": "add_projectrate", 
       "name": "Can add Projectrate", 
-      "content_type": 13
+      "content_type": 36
     }
   }, 
   {
@@ -3955,7 +3955,7 @@
     "fields": {
       "codename": "change_projectrate", 
       "name": "Can change Projectrate", 
-      "content_type": 13
+      "content_type": 36
     }
   }, 
   {
@@ -3964,7 +3964,7 @@
     "fields": {
       "codename": "delete_projectrate", 
       "name": "Can delete Projectrate", 
-      "content_type": 13
+      "content_type": 36
     }
   }, 
   {
@@ -3973,7 +3973,7 @@
     "fields": {
       "codename": "add_projectstep", 
       "name": "Can add Project step", 
-      "content_type": 21
+      "content_type": 23
     }
   }, 
   {
@@ -3982,7 +3982,7 @@
     "fields": {
       "codename": "change_projectstep", 
       "name": "Can change Project step", 
-      "content_type": 21
+      "content_type": 23
     }
   }, 
   {
@@ -3991,7 +3991,7 @@
     "fields": {
       "codename": "delete_projectstep", 
       "name": "Can delete Project step", 
-      "content_type": 21
+      "content_type": 23
     }
   }, 
   {
@@ -4000,7 +4000,7 @@
     "fields": {
       "codename": "add_projectsteptemplate", 
       "name": "Can add Project step template", 
-      "content_type": 32
+      "content_type": 41
     }
   }, 
   {
@@ -4009,7 +4009,7 @@
     "fields": {
       "codename": "change_projectsteptemplate", 
       "name": "Can change Project step template", 
-      "content_type": 32
+      "content_type": 41
     }
   }, 
   {
@@ -4018,7 +4018,7 @@
     "fields": {
       "codename": "delete_projectsteptemplate", 
       "name": "Can delete Project step template", 
-      "content_type": 32
+      "content_type": 41
     }
   }, 
   {
@@ -4027,7 +4027,7 @@
     "fields": {
       "codename": "add_projecttracker", 
       "name": "Can add Project issue tracker", 
-      "content_type": 19
+      "content_type": 29
     }
   }, 
   {
@@ -4036,7 +4036,7 @@
     "fields": {
       "codename": "change_projecttracker", 
       "name": "Can change Project issue tracker", 
-      "content_type": 19
+      "content_type": 29
     }
   }, 
   {
@@ -4045,7 +4045,7 @@
     "fields": {
       "codename": "delete_projecttracker", 
       "name": "Can delete Project issue tracker", 
-      "content_type": 19
+      "content_type": 29
     }
   }, 
   {
@@ -4054,7 +4054,7 @@
     "fields": {
       "codename": "add_projecttype", 
       "name": "Can add Project type", 
-      "content_type": 39
+      "content_type": 21
     }
   }, 
   {
@@ -4063,7 +4063,7 @@
     "fields": {
       "codename": "change_projecttype", 
       "name": "Can change Project type", 
-      "content_type": 39
+      "content_type": 21
     }
   }, 
   {
@@ -4072,7 +4072,7 @@
     "fields": {
       "codename": "delete_projecttype", 
       "name": "Can delete Project type", 
-      "content_type": 39
+      "content_type": 21
     }
   }, 
   {
@@ -4081,7 +4081,7 @@
     "fields": {
       "codename": "add_projectuser", 
       "name": "Can add Project user", 
-      "content_type": 22
+      "content_type": 31
     }
   }, 
   {
@@ -4090,7 +4090,7 @@
     "fields": {
       "codename": "change_projectuser", 
       "name": "Can change Project user", 
-      "content_type": 22
+      "content_type": 31
     }
   }, 
   {
@@ -4099,7 +4099,7 @@
     "fields": {
       "codename": "delete_projectuser", 
       "name": "Can delete Project user", 
-      "content_type": 22
+      "content_type": 31
     }
   }, 
   {
@@ -4108,7 +4108,7 @@
     "fields": {
       "codename": "add_projectuserrate", 
       "name": "Can add Project user rate", 
-      "content_type": 20
+      "content_type": 30
     }
   }, 
   {
@@ -4117,7 +4117,7 @@
     "fields": {
       "codename": "change_projectuserrate", 
       "name": "Can change Project user rate", 
-      "content_type": 20
+      "content_type": 30
     }
   }, 
   {
@@ -4126,7 +4126,7 @@
     "fields": {
       "codename": "delete_projectuserrate", 
       "name": "Can delete Project user rate", 
-      "content_type": 20
+      "content_type": 30
     }
   }, 
   {
@@ -4135,7 +4135,7 @@
     "fields": {
       "codename": "add_salutation", 
       "name": "Can add Salutation", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
@@ -4144,7 +4144,7 @@
     "fields": {
       "codename": "change_salutation", 
       "name": "Can change Salutation", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
@@ -4153,7 +4153,7 @@
     "fields": {
       "codename": "delete_salutation", 
       "name": "Can delete Salutation", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
@@ -4162,7 +4162,7 @@
     "fields": {
       "codename": "add_starreditem", 
       "name": "Can add Starred item", 
-      "content_type": 29
+      "content_type": 39
     }
   }, 
   {
@@ -4171,7 +4171,7 @@
     "fields": {
       "codename": "change_starreditem", 
       "name": "Can change Starred item", 
-      "content_type": 29
+      "content_type": 39
     }
   }, 
   {
@@ -4180,7 +4180,7 @@
     "fields": {
       "codename": "delete_starreditem", 
       "name": "Can delete Starred item", 
-      "content_type": 29
+      "content_type": 39
     }
   }, 
   {
@@ -4189,7 +4189,7 @@
     "fields": {
       "codename": "add_timer", 
       "name": "Can add Timer", 
-      "content_type": 15
+      "content_type": 28
     }
   }, 
   {
@@ -4198,7 +4198,7 @@
     "fields": {
       "codename": "change_timer", 
       "name": "Can change Timer", 
-      "content_type": 15
+      "content_type": 28
     }
   }, 
   {
@@ -4207,7 +4207,7 @@
     "fields": {
       "codename": "delete_timer", 
       "name": "Can delete Timer", 
-      "content_type": 15
+      "content_type": 28
     }
   }, 
   {
@@ -4216,7 +4216,7 @@
     "fields": {
       "codename": "add_userprofile", 
       "name": "Can add User profile", 
-      "content_type": 26
+      "content_type": 34
     }
   }, 
   {
@@ -4225,7 +4225,7 @@
     "fields": {
       "codename": "change_userprofile", 
       "name": "Can change User profile", 
-      "content_type": 26
+      "content_type": 34
     }
   }, 
   {
@@ -4234,7 +4234,7 @@
     "fields": {
       "codename": "delete_userprofile", 
       "name": "Can delete User profile", 
-      "content_type": 26
+      "content_type": 34
     }
   }, 
   {
@@ -4243,7 +4243,7 @@
     "fields": {
       "codename": "add_issue", 
       "name": "Can add Issue", 
-      "content_type": 10
+      "content_type": 11
     }
   }, 
   {
@@ -4252,7 +4252,7 @@
     "fields": {
       "codename": "change_issue", 
       "name": "Can change Issue", 
-      "content_type": 10
+      "content_type": 11
     }
   }, 
   {
@@ -4261,7 +4261,7 @@
     "fields": {
       "codename": "delete_issue", 
       "name": "Can delete Issue", 
-      "content_type": 10
+      "content_type": 11
     }
   }, 
   {
@@ -4270,7 +4270,7 @@
     "fields": {
       "codename": "add_issueuser", 
       "name": "Can add Issue user", 
-      "content_type": 11
+      "content_type": 8
     }
   }, 
   {
@@ -4279,7 +4279,7 @@
     "fields": {
       "codename": "change_issueuser", 
       "name": "Can change Issue user", 
-      "content_type": 11
+      "content_type": 8
     }
   }, 
   {
@@ -4288,7 +4288,7 @@
     "fields": {
       "codename": "delete_issueuser", 
       "name": "Can delete Issue user", 
-      "content_type": 11
+      "content_type": 8
     }
   }, 
   {
@@ -4297,7 +4297,7 @@
     "fields": {
       "codename": "add_tracker", 
       "name": "Can add Issue tracker", 
-      "content_type": 12
+      "content_type": 9
     }
   }, 
   {
@@ -4306,7 +4306,7 @@
     "fields": {
       "codename": "change_tracker", 
       "name": "Can change Issue tracker", 
-      "content_type": 12
+      "content_type": 9
     }
   }, 
   {
@@ -4315,7 +4315,7 @@
     "fields": {
       "codename": "delete_tracker", 
       "name": "Can delete Issue tracker", 
-      "content_type": 12
+      "content_type": 9
     }
   }, 
   {
@@ -4324,7 +4324,7 @@
     "fields": {
       "codename": "add_type", 
       "name": "Can add Type", 
-      "content_type": 8
+      "content_type": 10
     }
   }, 
   {
@@ -4333,7 +4333,7 @@
     "fields": {
       "codename": "change_type", 
       "name": "Can change Type", 
-      "content_type": 8
+      "content_type": 10
     }
   }, 
   {
@@ -4342,7 +4342,7 @@
     "fields": {
       "codename": "delete_type", 
       "name": "Can delete Type", 
-      "content_type": 8
+      "content_type": 10
     }
   }, 
   {
@@ -4351,7 +4351,7 @@
     "fields": {
       "codename": "add_usermapping", 
       "name": "Can add User mapping", 
-      "content_type": 9
+      "content_type": 12
     }
   }, 
   {
@@ -4360,7 +4360,7 @@
     "fields": {
       "codename": "change_usermapping", 
       "name": "Can change User mapping", 
-      "content_type": 9
+      "content_type": 12
     }
   }, 
   {
@@ -4369,7 +4369,7 @@
     "fields": {
       "codename": "delete_usermapping", 
       "name": "Can delete User mapping", 
-      "content_type": 9
+      "content_type": 12
     }
   }, 
   {
@@ -4439,7 +4439,92 @@
     "model": "auth.group", 
     "fields": {
       "name": "projectmanager", 
-      "permissions": []
+      "permissions": [
+        37, 
+        66, 
+        95, 
+        38, 
+        67, 
+        96, 
+        39, 
+        68, 
+        97, 
+        40, 
+        69, 
+        98, 
+        41, 
+        70, 
+        99, 
+        42, 
+        71, 
+        100, 
+        43, 
+        72, 
+        101, 
+        44, 
+        73, 
+        102, 
+        45, 
+        74, 
+        103, 
+        46, 
+        75, 
+        104, 
+        47, 
+        76, 
+        105, 
+        48, 
+        77, 
+        106, 
+        49, 
+        78, 
+        107, 
+        50, 
+        79, 
+        108, 
+        51, 
+        80, 
+        109, 
+        52, 
+        81, 
+        110, 
+        53, 
+        82, 
+        111, 
+        60, 
+        89, 
+        118, 
+        55, 
+        84, 
+        113, 
+        56, 
+        85, 
+        114, 
+        54, 
+        83, 
+        112, 
+        57, 
+        86, 
+        115, 
+        58, 
+        87, 
+        116, 
+        59, 
+        88, 
+        117, 
+        61, 
+        90, 
+        119, 
+        62, 
+        91, 
+        120, 
+        63, 
+        92, 
+        121, 
+        64, 
+        93, 
+        122
+      ]
     }
   }, 
   {
@@ -4447,7 +4532,22 @@
     "model": "auth.group", 
     "fields": {
       "name": "employee", 
-      "permissions": []
+      "permissions": [
+        40, 
+        69, 
+        98, 
+        71, 
+        47, 
+        76, 
+        105, 
+        62, 
+        91, 
+        120, 
+        63, 
+        92, 
+        121, 
+        93
+      ]
     }
   }, 
   {
@@ -4455,7 +4555,22 @@
     "model": "auth.group", 
     "fields": {
       "name": "freelancer", 
-      "permissions": []
+      "permissions": [
+        40, 
+        69, 
+        98, 
+        71, 
+        47, 
+        76, 
+        105, 
+        62, 
+        91, 
+        120, 
+        63, 
+        92, 
+        121, 
+        93
+      ]
     }
   }, 
   {
@@ -4463,7 +4578,22 @@
     "model": "auth.group", 
     "fields": {
       "name": "holidaymanager", 
-      "permissions": []
+      "permissions": [
+        40, 
+        69, 
+        98, 
+        71, 
+        47, 
+        76, 
+        105, 
+        62, 
+        91, 
+        120, 
+        63, 
+        92, 
+        121, 
+        93
+      ]
     }
   }, 
   {

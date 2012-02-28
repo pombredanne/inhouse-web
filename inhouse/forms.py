@@ -408,6 +408,21 @@ class LoginForm(InhouseMixin, BaseAuthenticationForm):
     """Form used to login a user."""
 
 
+class ProjectCopyForm(Form):
+    """Form to create a project copy."""
+
+    name = forms.CharField(label=_(u'Name'), required=False,
+                           widget=forms.TextInput(attrs={'size': 80}))
+    steps = forms.BooleanField(label=_(u'Steps'), required=False,
+                               help_text=_(u'Adopt the project\'s steps in'
+                                           u' their current order.'))
+    members = forms.BooleanField(label=_(u'Members'), required=False,
+                                 help_text=_(u'Copies all project members.'))
+    tracker = forms.BooleanField(label=_(u'Tracker'), required=False,
+                                 help_text=_(u'Copies all issue tracker'
+                                             u' assignments.'))
+
+
 class ProjectDefaultStepForm(Form):
     """Form to assign project step templates to a project."""
 

@@ -1,0 +1,64 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_modify adminmedia %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" />{% endblock %}
+
+{% block title %}{% trans "Copy project" %}{% endblock %}
+
+{% block breadcrumbs %}
+  {% if not is_popup %}
+    <div class="breadcrumbs">
+      {{ project }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <form method="post">
+    {% csrf_token %}
+    <h1>{% trans "Copy project" %}</h1>
+    <fieldset class="module aligned">
+      <div>
+        <div class="form-row is_active">
+          <label for="id_name">{{ form.name.label }}:</label>
+          {{ form.name }}
+        </div>
+        <div class="form-row is_active">
+          {{ form.steps }}<label for="id_steps">{{ form.steps.label }}:</label>
+          <p class="help">{{ form.steps.help_text }}</p>
+          <h4>{% trans "Steps to be copied" %}</h4>
+          <ul style="margin-left: 9em;">
+          {% for step in steps %}
+            <li>{{ step }}</li>
+          {% endfor %}
+          </ul>
+        </div>
+        <div class="form-row is_active">
+          {{ form.members }}<label for="id_members">{{ form.members.label }}:</label>
+          <p class="help">{{ form.members.help_text }}</p>
+          <h4>{% trans "Members to be copied" %}</h4>
+          <ul style="margin-left: 9em;">
+          {% for member in members %}
+            <li>{{ member }}</li>
+          {% endfor %}
+          </ul>
+        </div>
+        <div class="form-row is_active">
+          {{ form.tracker }}<label for="id_tracker">{{ form.tracker.label }}:</label>
+          <p class="help">{{ form.tracker.help_text }}</p>
+          <h4>{% trans "Trackers to be copied" %}</h4>
+          <ul style="margin-left: 9em;">
+          {% for project_tracker in trackers %}
+            <li>{{ project_tracker.tracker }} ({{ project_tracker.tracker.type }})</li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+    <div class="submit-row" >
+      <input type="submit" value="{% trans "Save" %}" class="default" name="_save" />
+      <input type="submit" value="{% trans "Cancel" %}" name="_cancel" />
+    </div>
+  </form>
+{% endblock %}

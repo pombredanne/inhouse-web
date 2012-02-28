@@ -430,6 +430,48 @@ class Booking(DefaultInfo):
         #return reverse('inhouse.views.edit_booking', self.id, [])
         #return ('inhouse.views.edit_booking', [str(self.id)])
 
+    @property
+    def is_open(self):
+        """Is the booking editable?
+
+        :returns: ``True`` or ``False``
+        """
+        if (self.project.is_closed or self.day.locked
+            or self.step.is_closed or self.invoice):
+            return False
+        return True
+
+    def get_closing_reason_tuple(self):
+        """Return one ore more reasons, why the booking is closed.
+
+        :returns: Tuple with strings
+        """
+        reasons = []
+        if self.is_open:
+            return reasons
+        if self.day.locked:
+            reasons.append(_(u'The day is locked.'))
+        if not self.project.is_open:
+            reasons.append(_(u'The project is closed or inactive.'))
+        if not self.step.is_open:
+            reasons.append(_(u'The projectstep is closed.'))
+        if self.invoice:
+            reasons.append(_(u'The booking has been settled.'))
+        return tuple(reasons)
+
+    def get_closing_reason_string(self, sep='<br />'):
+        """Return the closing reason(s) as one single string.
+
+        :param sep: Seperator for the elements
+        :returns: String
+        """
+        data = self.get_closing_reason_tuple()
+        if '<' in sep:
+            frmt = cgi.escape
+        else:
+            frmt = lambda x: x
+        return sep.join(frmt(part) for part in data if part is not None)
+
     def next_position(self):
         """Set the next available position, depending on the day."""
         bookings = Booking.objects.filter(day=self.day)
@@ -841,13 +883,14 @@ class Project(DefaultInfo):
 
     @classmethod
     def copy(cls, other):
-        """Creates a copy of an existing project instance."""
+        """Creates a copy of an existing project instance.
+
+        :returns: A new :class:`Project` instance
+        """
         new = Project()
-        if name is None:
-            new.name = u'%s \'%s\'' % (_(u'Copy of'), other.name)
-        else:
-            new.name = name
-        new.key = u''
+        new.name = u'%s \'%s\'' % (_(u'Copy of'), other.name)
+        max_id = Project.objects.aggregate(models.Max('id'))['id__max'] or 0
+        new.key = u'PR%d' % (max_id + 1)
         new.description = u''
         new.customer = other.customer
         new.company = other.company
@@ -865,6 +908,14 @@ class Project(DefaultInfo):
     #@models.permalink
     #def get_absolute_url(self):
         #return ('inhouse.views.show_project', [str(self.id)])
+
+    @property
+    def is_open(self):
+        """Is the project currently active?
+
+        :returns: ``True`` or ``False`
+        """
+        return self.status in PROJECT_ACTIVE_STATUS
 
     def get_coefficient(self, step=None, day=None):
         """Returns the billing coefficient for each booking.
@@ -957,6 +1008,14 @@ class ProjectStep(DefaultInfo):
         new.description = other.description
         new.status = STEP_STATUS_OPEN
         return new
+
+    @property
+    def is_open(self):
+        """Is the project step currently open?
+
+        :returns: ``True`` or ``False`
+        """
+        return self.status == STEP_STATUS_OPEN
 
     def next_position(self):
         """Set the next free position for a project`s step."""
@@ -1263,3 +1322,6 @@ class UserProfile(DefaultInfo):
             profile.language = 'en'
         profile.save()
         return profile
+
+    def get_news(self):
+        pass

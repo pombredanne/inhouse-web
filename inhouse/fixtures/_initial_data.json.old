@@ -3460,25 +3460,25 @@
     "fields": {
       "codename": "add_address", 
       "name": "Can add Address", 
-      "content_type": 15
+      "content_type": 23
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 66, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_address", 
       "name": "Can change Address", 
-      "content_type": 15
+      "content_type": 23
     }
   }, 
   {
-    "pk": 97, 
+    "pk": 95, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_address", 
       "name": "Can delete Address", 
-      "content_type": 15
+      "content_type": 23
     }
   }, 
   {
@@ -3487,52 +3487,52 @@
     "fields": {
       "codename": "add_addressgroup", 
       "name": "Can add Address group", 
-      "content_type": 30
+      "content_type": 34
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 67, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_addressgroup", 
       "name": "Can change Address group", 
-      "content_type": 30
-    }
-  }, 
-  {
-    "pk": 98, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_addressgroup", 
-      "name": "Can delete Address group", 
-      "content_type": 30
-    }
-  }, 
-  {
-    "pk": 66, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_authusergroup", 
-      "name": "Can add auth user group", 
-      "content_type": 38
+      "content_type": 34
     }
   }, 
   {
     "pk": 96, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_authusergroup", 
-      "name": "Can change auth user group", 
-      "content_type": 38
+      "codename": "delete_addressgroup", 
+      "name": "Can delete Address group", 
+      "content_type": 34
     }
   }, 
   {
-    "pk": 126, 
+    "pk": 65, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_authusergroup", 
+      "name": "Can add auth user group", 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_authusergroup", 
+      "name": "Can change auth user group", 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 123, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_authusergroup", 
       "name": "Can delete auth user group", 
-      "content_type": 38
+      "content_type": 17
     }
   }, 
   {
@@ -3541,25 +3541,25 @@
     "fields": {
       "codename": "add_billingtype", 
       "name": "Can add Billing type", 
-      "content_type": 24
+      "content_type": 30
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 68, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_billingtype", 
       "name": "Can change Billing type", 
-      "content_type": 24
+      "content_type": 30
     }
   }, 
   {
-    "pk": 99, 
+    "pk": 97, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_billingtype", 
       "name": "Can delete Billing type", 
-      "content_type": 24
+      "content_type": 30
     }
   }, 
   {
@@ -3568,25 +3568,25 @@
     "fields": {
       "codename": "add_booking", 
       "name": "Can add Booking", 
-      "content_type": 23
+      "content_type": 28
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 69, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_booking", 
       "name": "Can change Booking", 
-      "content_type": 23
+      "content_type": 28
     }
   }, 
   {
-    "pk": 100, 
+    "pk": 98, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_booking", 
       "name": "Can delete Booking", 
-      "content_type": 23
+      "content_type": 28
     }
   }, 
   {
@@ -3595,25 +3595,25 @@
     "fields": {
       "codename": "add_commissionstatus", 
       "name": "Can add Commission status", 
-      "content_type": 18
+      "content_type": 25
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 70, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_commissionstatus", 
       "name": "Can change Commission status", 
-      "content_type": 18
+      "content_type": 25
     }
   }, 
   {
-    "pk": 101, 
+    "pk": 99, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_commissionstatus", 
       "name": "Can delete Commission status", 
-      "content_type": 18
+      "content_type": 25
     }
   }, 
   {
@@ -3622,25 +3622,25 @@
     "fields": {
       "codename": "add_communication", 
       "name": "Can add Communication data", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 71, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_communication", 
       "name": "Can change Communication data", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
-    "pk": 102, 
+    "pk": 100, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_communication", 
       "name": "Can delete Communication data", 
-      "content_type": 35
+      "content_type": 40
     }
   }, 
   {
@@ -3649,25 +3649,25 @@
     "fields": {
       "codename": "add_company", 
       "name": "Can add Company", 
-      "content_type": 32
+      "content_type": 37
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 72, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_company", 
       "name": "Can change Company", 
-      "content_type": 32
+      "content_type": 37
     }
   }, 
   {
-    "pk": 103, 
+    "pk": 101, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_company", 
       "name": "Can delete Company", 
-      "content_type": 32
+      "content_type": 37
     }
   }, 
   {
@@ -3676,25 +3676,25 @@
     "fields": {
       "codename": "add_contact", 
       "name": "Can add Contact", 
-      "content_type": 41
+      "content_type": 16
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 73, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_contact", 
       "name": "Can change Contact", 
-      "content_type": 41
+      "content_type": 16
     }
   }, 
   {
-    "pk": 104, 
+    "pk": 102, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_contact", 
       "name": "Can delete Contact", 
-      "content_type": 41
+      "content_type": 16
     }
   }, 
   {
@@ -3703,25 +3703,25 @@
     "fields": {
       "codename": "add_country", 
       "name": "Can add Country", 
-      "content_type": 13
+      "content_type": 18
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 74, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_country", 
       "name": "Can change Country", 
-      "content_type": 13
+      "content_type": 18
     }
   }, 
   {
-    "pk": 105, 
+    "pk": 103, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_country", 
       "name": "Can delete Country", 
-      "content_type": 13
+      "content_type": 18
     }
   }, 
   {
@@ -3730,25 +3730,25 @@
     "fields": {
       "codename": "add_customer", 
       "name": "Can add Customer", 
-      "content_type": 33
+      "content_type": 38
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 75, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_customer", 
       "name": "Can change Customer", 
-      "content_type": 33
+      "content_type": 38
     }
   }, 
   {
-    "pk": 106, 
+    "pk": 104, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_customer", 
       "name": "Can delete Customer", 
-      "content_type": 33
+      "content_type": 38
     }
   }, 
   {
@@ -3757,25 +3757,25 @@
     "fields": {
       "codename": "add_day", 
       "name": "Can add Day", 
-      "content_type": 29
+      "content_type": 33
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 76, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_day", 
       "name": "Can change Day", 
-      "content_type": 29
+      "content_type": 33
     }
   }, 
   {
-    "pk": 107, 
+    "pk": 105, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_day", 
       "name": "Can delete Day", 
-      "content_type": 29
+      "content_type": 33
     }
   }, 
   {
@@ -3784,25 +3784,25 @@
     "fields": {
       "codename": "add_department", 
       "name": "Can add Department", 
-      "content_type": 21
+      "content_type": 27
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 77, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_department", 
       "name": "Can change Department", 
-      "content_type": 21
+      "content_type": 27
     }
   }, 
   {
-    "pk": 108, 
+    "pk": 106, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_department", 
       "name": "Can delete Department", 
-      "content_type": 21
+      "content_type": 27
     }
   }, 
   {
@@ -3811,25 +3811,25 @@
     "fields": {
       "codename": "add_departmentuser", 
       "name": "Can add Department member", 
-      "content_type": 39
+      "content_type": 14
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 78, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_departmentuser", 
       "name": "Can change Department member", 
-      "content_type": 39
+      "content_type": 14
     }
   }, 
   {
-    "pk": 109, 
+    "pk": 107, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_departmentuser", 
       "name": "Can delete Department member", 
-      "content_type": 39
+      "content_type": 14
     }
   }, 
   {
@@ -3838,25 +3838,25 @@
     "fields": {
       "codename": "add_invoice", 
       "name": "Can add Invoice", 
-      "content_type": 31
+      "content_type": 36
     }
   }, 
   {
-    "pk": 80, 
+    "pk": 79, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_invoice", 
       "name": "Can change Invoice", 
-      "content_type": 31
+      "content_type": 36
     }
   }, 
   {
-    "pk": 110, 
+    "pk": 108, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_invoice", 
       "name": "Can delete Invoice", 
-      "content_type": 31
+      "content_type": 36
     }
   }, 
   {
@@ -3865,25 +3865,25 @@
     "fields": {
       "codename": "add_news", 
       "name": "Can add News", 
-      "content_type": 26
+      "content_type": 31
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 80, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_news", 
       "name": "Can change News", 
-      "content_type": 26
+      "content_type": 31
     }
   }, 
   {
-    "pk": 111, 
+    "pk": 109, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_news", 
       "name": "Can delete News", 
-      "content_type": 26
+      "content_type": 31
     }
   }, 
   {
@@ -3892,25 +3892,25 @@
     "fields": {
       "codename": "add_newsgroup", 
       "name": "Can add News group", 
-      "content_type": 16
+      "content_type": 24
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 81, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_newsgroup", 
       "name": "Can change News group", 
-      "content_type": 16
+      "content_type": 24
     }
   }, 
   {
-    "pk": 112, 
+    "pk": 110, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_newsgroup", 
       "name": "Can delete News group", 
-      "content_type": 16
+      "content_type": 24
     }
   }, 
   {
@@ -3919,133 +3919,106 @@
     "fields": {
       "codename": "add_project", 
       "name": "Can add Project", 
-      "content_type": 37
+      "content_type": 41
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 82, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_project", 
       "name": "Can change Project", 
-      "content_type": 37
+      "content_type": 41
     }
   }, 
   {
-    "pk": 113, 
+    "pk": 111, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_project", 
       "name": "Can delete Project", 
-      "content_type": 37
+      "content_type": 41
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 60, 
     "model": "auth.permission", 
     "fields": {
       "codename": "add_projectrate", 
       "name": "Can add Projectrate", 
-      "content_type": 25
+      "content_type": 13
     }
   }, 
   {
-    "pk": 91, 
+    "pk": 89, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_projectrate", 
       "name": "Can change Projectrate", 
-      "content_type": 25
+      "content_type": 13
     }
   }, 
   {
-    "pk": 121, 
+    "pk": 118, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_projectrate", 
       "name": "Can delete Projectrate", 
-      "content_type": 25
+      "content_type": 13
     }
   }, 
   {
     "pk": 55, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_projectstatus", 
-      "name": "Can add Project status", 
-      "content_type": 42
+      "codename": "add_projectstep", 
+      "name": "Can add Project step", 
+      "content_type": 21
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 84, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_projectstatus", 
-      "name": "Can change Project status", 
-      "content_type": 42
+      "codename": "change_projectstep", 
+      "name": "Can change Project step", 
+      "content_type": 21
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 113, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_projectstatus", 
-      "name": "Can delete Project status", 
-      "content_type": 42
+      "codename": "delete_projectstep", 
+      "name": "Can delete Project step", 
+      "content_type": 21
     }
   }, 
   {
     "pk": 56, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_projectstep", 
-      "name": "Can add Project step", 
-      "content_type": 40
-    }
-  }, 
-  {
-    "pk": 86, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_projectstep", 
-      "name": "Can change Project step", 
-      "content_type": 40
-    }
-  }, 
-  {
-    "pk": 116, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_projectstep", 
-      "name": "Can delete Project step", 
-      "content_type": 40
-    }
-  }, 
-  {
-    "pk": 57, 
-    "model": "auth.permission", 
-    "fields": {
       "codename": "add_projectsteptemplate", 
       "name": "Can add Project step template", 
-      "content_type": 36
+      "content_type": 32
     }
   }, 
   {
-    "pk": 87, 
+    "pk": 85, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_projectsteptemplate", 
       "name": "Can change Project step template", 
-      "content_type": 36
+      "content_type": 32
     }
   }, 
   {
-    "pk": 117, 
+    "pk": 114, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_projectsteptemplate", 
       "name": "Can delete Project step template", 
-      "content_type": 36
+      "content_type": 32
     }
   }, 
   {
@@ -4054,214 +4027,214 @@
     "fields": {
       "codename": "add_projecttracker", 
       "name": "Can add Project issue tracker", 
-      "content_type": 22
+      "content_type": 19
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 83, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_projecttracker", 
       "name": "Can change Project issue tracker", 
-      "content_type": 22
+      "content_type": 19
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 112, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_projecttracker", 
       "name": "Can delete Project issue tracker", 
-      "content_type": 22
+      "content_type": 19
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_projecttype", 
+      "name": "Can add Project type", 
+      "content_type": 39
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_projecttype", 
+      "name": "Can change Project type", 
+      "content_type": 39
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_projecttype", 
+      "name": "Can delete Project type", 
+      "content_type": 39
     }
   }, 
   {
     "pk": 58, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_projecttype", 
-      "name": "Can add Project type", 
-      "content_type": 14
+      "codename": "add_projectuser", 
+      "name": "Can add Project user", 
+      "content_type": 22
     }
   }, 
   {
-    "pk": 88, 
+    "pk": 87, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_projecttype", 
-      "name": "Can change Project type", 
-      "content_type": 14
+      "codename": "change_projectuser", 
+      "name": "Can change Project user", 
+      "content_type": 22
     }
   }, 
   {
-    "pk": 118, 
+    "pk": 116, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_projecttype", 
-      "name": "Can delete Project type", 
-      "content_type": 14
+      "codename": "delete_projectuser", 
+      "name": "Can delete Project user", 
+      "content_type": 22
     }
   }, 
   {
     "pk": 59, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_projectuser", 
-      "name": "Can add Project user", 
-      "content_type": 27
-    }
-  }, 
-  {
-    "pk": 89, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_projectuser", 
-      "name": "Can change Project user", 
-      "content_type": 27
-    }
-  }, 
-  {
-    "pk": 119, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_projectuser", 
-      "name": "Can delete Project user", 
-      "content_type": 27
-    }
-  }, 
-  {
-    "pk": 60, 
-    "model": "auth.permission", 
-    "fields": {
       "codename": "add_projectuserrate", 
       "name": "Can add Project user rate", 
-      "content_type": 17
+      "content_type": 20
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_projectuserrate", 
+      "name": "Can change Project user rate", 
+      "content_type": 20
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_projectuserrate", 
+      "name": "Can delete Project user rate", 
+      "content_type": 20
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_salutation", 
+      "name": "Can add Salutation", 
+      "content_type": 35
     }
   }, 
   {
     "pk": 90, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_projectuserrate", 
-      "name": "Can change Project user rate", 
-      "content_type": 17
+      "codename": "change_salutation", 
+      "name": "Can change Salutation", 
+      "content_type": 35
     }
   }, 
   {
-    "pk": 120, 
+    "pk": 119, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_projectuserrate", 
-      "name": "Can delete Project user rate", 
-      "content_type": 17
+      "codename": "delete_salutation", 
+      "name": "Can delete Salutation", 
+      "content_type": 35
     }
   }, 
   {
     "pk": 62, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_salutation", 
-      "name": "Can add Salutation", 
-      "content_type": 19
+      "codename": "add_starreditem", 
+      "name": "Can add Starred item", 
+      "content_type": 29
     }
   }, 
   {
-    "pk": 92, 
+    "pk": 91, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_salutation", 
-      "name": "Can change Salutation", 
-      "content_type": 19
+      "codename": "change_starreditem", 
+      "name": "Can change Starred item", 
+      "content_type": 29
     }
   }, 
   {
-    "pk": 122, 
+    "pk": 120, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_salutation", 
-      "name": "Can delete Salutation", 
-      "content_type": 19
+      "codename": "delete_starreditem", 
+      "name": "Can delete Starred item", 
+      "content_type": 29
     }
   }, 
   {
     "pk": 63, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_starreditem", 
-      "name": "Can add Starred item", 
-      "content_type": 34
+      "codename": "add_timer", 
+      "name": "Can add Timer", 
+      "content_type": 15
     }
   }, 
   {
-    "pk": 93, 
+    "pk": 92, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_starreditem", 
-      "name": "Can change Starred item", 
-      "content_type": 34
+      "codename": "change_timer", 
+      "name": "Can change Timer", 
+      "content_type": 15
     }
   }, 
   {
-    "pk": 123, 
+    "pk": 121, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_starreditem", 
-      "name": "Can delete Starred item", 
-      "content_type": 34
+      "codename": "delete_timer", 
+      "name": "Can delete Timer", 
+      "content_type": 15
     }
   }, 
   {
     "pk": 64, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_timer", 
-      "name": "Can add Timer", 
-      "content_type": 20
-    }
-  }, 
-  {
-    "pk": 94, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_timer", 
-      "name": "Can change Timer", 
-      "content_type": 20
-    }
-  }, 
-  {
-    "pk": 124, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_timer", 
-      "name": "Can delete Timer", 
-      "content_type": 20
-    }
-  }, 
-  {
-    "pk": 65, 
-    "model": "auth.permission", 
-    "fields": {
       "codename": "add_userprofile", 
       "name": "Can add User profile", 
-      "content_type": 28
+      "content_type": 26
     }
   }, 
   {
-    "pk": 95, 
+    "pk": 93, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_userprofile", 
       "name": "Can change User profile", 
-      "content_type": 28
+      "content_type": 26
     }
   }, 
   {
-    "pk": 125, 
+    "pk": 122, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_userprofile", 
       "name": "Can delete User profile", 
-      "content_type": 28
+      "content_type": 26
     }
   }, 
   {

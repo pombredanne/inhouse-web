@@ -46,8 +46,8 @@
             <li><p>{{ user.email }}</p></li>
             <li>
               <div class="btn-group">
-                <a class="btn" href="{% url inhouse:profile %}"><i class="icon-user"></i> {% trans "Profile" %}</a>
-                <a class="btn" href="{% url inhouse:logout %}"><i class="icon-arrow-right"></i> {% trans "Log out" %}</a>
+                <a class="btn btn-mini" href="{% url inhouse:profile %}"><i class="icon-user"></i> {% trans "Profile" %}</a>
+                <a class="btn btn-mini" href="{% url inhouse:logout %}"><i class="icon-arrow-right"></i> {% trans "Log out" %}</a>
               </div>
             </li>
           </ul>
@@ -79,11 +79,11 @@
   <section id="content">
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">&nbsp;</div>
+        <div class="span3"></div>
         <div class="span7">
           {% block content %}CONTENT GOES HERE{% endblock %}
         </div>
-        <!--<div class="span2">Test</div>-->
+        <div class="span2"></div>
       </div>
       <!--
       <div class="content">
