@@ -2,14 +2,18 @@
 
 div.notification-box {
   position: fixed;
-  //left: 300px;
-  //width: 490px;
+  left: 25% !important;
   width: 50%;
-  top: -400;
   border-top: none;
-  padding: 0 0 20px 58px;
   z-index: 10000;
-  opacity: .9;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#notifications {
+  color: @grayDarker;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 #notifications>ul {
@@ -19,10 +23,14 @@ div.notification-box {
 }
 
 #notifications>ul>li {
-  padding: 8px 35px 8px 14px;
+  padding: 6px 35px 6px 14px;
   margin-bottom: 6px;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
-  .border-radius(4px);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  -moz-transition: all .218s;
+  -webkit-transition: all .218s;
 }
 
 #notifications .close {

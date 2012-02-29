@@ -9,7 +9,7 @@ from django.test.client import Client
 
 class TestViews(TestCase):
 
-    fixtures = ['dev_users.json']
+    #fixtures = ['dev_users.json']
 
     def setUp(self):
         self.client = Client()

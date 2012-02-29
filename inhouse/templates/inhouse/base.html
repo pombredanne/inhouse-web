@@ -73,7 +73,7 @@
   </section>
   {% endif %}
 
-  <div id="notifications" class="notification-box border-radius-bottom pujshidden"></div>
+  <div id="notifications" class="notification-box pujshidden"></div>
 
   <section id="content">
     <div class="container-fluid">
@@ -84,33 +84,15 @@
         </div>
         <div class="span2"></div>
       </div>
-      <!--
-      <div class="content">
-        <div class="main">
-
-        </div>
-        <div class="sidebar"></div>
-      </div>
-      -->
     </div>
   </section>
 
-  <!--
+
   <section id="toolbox">
     Dies ist ein Test
   </section>
-  -->
 
 
-  <!--<div id="main" role="main">-->
-  <!--
-  <div class="site clearfix">
-    <div class="container">
-
-
-    </div>
-  </div>
-  -->
   {% if not user.is_anonymous %}
   <hr>
   <footer class="footer">
@@ -129,7 +111,6 @@
     pu.ui.show_message('{{ message.tags }}', '{{ message|escapejs }}');
   {% endfor %}
   </script>
-
 {% endif %}
 
 <script type="text/javascript">pu.post_init();</script>

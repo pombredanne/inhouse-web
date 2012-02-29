@@ -27,7 +27,7 @@ CMD_LESSC = 'lessc'
 
 PYLINT_MODULES = ['inhouse']
 
-INITIAL_FIXTURES = ['countries', 'groups', 'permissions', 'dev_users']
+INITIAL_FIXTURES = ['auth', 'countries']
 
 BOOTSTRAP_PATH = os.path.abspath(os.path.join('assets', 'less', 'bootstrap'))
 BOOTSTRAP_URL = 'https://github.com/twitter/bootstrap/zipball/v2.0.1'
@@ -93,6 +93,7 @@ def dev_db(assume_yes=False):
             local('dropdb -U %s %s' % (conf.get('USER'), conf.get('NAME')))
         local('createdb -U %s %s' % (conf.get('USER'), conf.get('NAME')))
     load_initial_data()
+    load_dev_data()
 
 
 @task
@@ -142,6 +143,13 @@ def lint(pylint=CMD_PYLINT, pylint_args=''):
             abort(colors.red('Pylint error.', bold=True))
         elif warning & result.return_code:
             print(colors.yellow('Pylint reported warnings.'))
+
+
+@task
+def load_dev_data():
+    django.settings_module('settings_debug')
+    local('python manage.py loaddata dev_users')
+    local('python manage.py loaddata test_data')
 
 
 @task
