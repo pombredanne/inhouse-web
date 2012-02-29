@@ -13,12 +13,12 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="index,follow" />
   <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
   <script type="text/javascript">
     var CLOSURE_NO_DEPS = true;
   </script>
   {% goog_links %}
+  <link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico">
   <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
   <script src="{{STATIC_URL}}js/modernizr-2.0.6.min.js"></script>
   {% block head %}{% endblock %}
@@ -88,9 +88,8 @@
   </section>
 
 
-  <section id="toolbox">
-    Dies ist ein Test
-  </section>
+  <!--<section id="toolbox">
+  </section>-->
 
 
   {% if not user.is_anonymous %}

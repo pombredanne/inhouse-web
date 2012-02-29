@@ -37,9 +37,6 @@ def login(request, *args, **kwargs):
 
 @login_required
 def profile_details(request):
-    messages.success(request, _(u'This is a success'))
-    messages.warning(request, _(u'This is a warning'))
-    messages.error(request, _(u'This is an error'))
     try:
         profile = models.UserProfile.new(user=request.user)
     except InhouseModelError:
