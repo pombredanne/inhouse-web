@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+"""Middleware classes."""
+
+# ignore too few public methods, pylint: disable=R0903
+
 import logging
 import traceback
 

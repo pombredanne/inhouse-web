@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""Forms."""
+
+# ignore missing constructors in this module, pylint: disable=W0232
+# ignore too few public methods, pylint: disable=R0903
+# ignore too many public methods, pylint: disable=R0904
+
 from itertools import chain
 import datetime
 import re

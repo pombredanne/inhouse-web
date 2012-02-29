@@ -2,6 +2,7 @@
 
 """Model definitions."""
 
+# ignore missing constructors in this module, pylint: disable=W0232
 # ignore too few public methods, pylint: disable=R0903
 # ignore too many lines convention (>1000), pylint: disable=C0302
 # TODO: Find a workaround for auto-generated members

@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""Admin models."""
+
+# ignore missing constructors in this module, pylint: disable=W0232
+# ignore too few public methods, pylint: disable=R0903
+# ignore too many public methods, pylint: disable=R0904
+
 from django import forms
 from django.db.models import Q
 from django.contrib import admin
@@ -126,21 +132,21 @@ class BookingAdmin(VersionAdmin):
     search_fields = ['title', 'description', 'issue__title',
                      'issue__description', 'issue__no', 'issue__master']
 
-    def get_date(self, booking):
+    def get_date(self, booking): # pylint: disable=R0201
         return booking.day.date
     get_date.short_description = _(u'Date')
     get_date.admin_order_field = 'day__date'
 
-    def get_duration(self, booking):
+    def get_duration(self, booking): # pylint: disable=R0201
         return format_minutes_to_time(booking.duration)
     get_duration.admin_order_field = 'duration'
     get_duration.short_description = _(u'Duration')
 
-    def get_title(self, booking):
+    def get_title(self, booking): # pylint: disable=R0201
         return booking.get_title()
     get_title.short_description = _(u'Activity')
 
-    def get_tracker(self, booking):
+    def get_tracker(self, booking): # pylint: disable=R0201
         if booking.issue:
             return booking.issue.tracker.name
         else:
@@ -148,7 +154,7 @@ class BookingAdmin(VersionAdmin):
     get_tracker.short_description = _(u'Tracker')
     get_tracker.admin_order_field = 'issue__tracker__name'
 
-    def get_user(self, booking):
+    def get_user(self, booking): # pylint: disable=R0201
         return booking.day.user
     get_user.short_description = _(u'User')
     get_user.admin_order_field = 'day__user'
@@ -334,7 +340,7 @@ class DayAdmin(ModelAdmin):
     list_filter = ('user', 'locked')
     readonly_fields = ('created', 'created_by', 'modified', 'modified_by')
 
-    def get_booking_sum(self, day):
+    def get_booking_sum(self, day): # pylint: disable=R0201
         """Display the booking time per day.
 
         The normal frontend validation will not allow more than 24 hours,
@@ -551,7 +557,7 @@ class ProjectAdmin(ModelAdmin):
     readonly_fields = ('created', 'created_by', 'modified', 'modified_by')
     search_fields = ['name', 'description']
 
-    def colored_status(self, project):
+    def colored_status(self, project): # pylint: disable=R0201
         if project.status in models.PROJECT_INACTIVE_STATUS:
             color = 'red'
         elif project.status in models.PROJECT_ACTIVE_STATUS:
