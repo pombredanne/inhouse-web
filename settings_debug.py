@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'reversion',
     'goog',
     'issues',
     'inhouse',

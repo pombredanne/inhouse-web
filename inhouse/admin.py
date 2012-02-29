@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
 
+from reversion.admin import VersionAdmin
+
 #from library import format_minutes_to_time
 from inhouse import models
 
@@ -77,7 +79,7 @@ class BillingTypeAdmin(ModelAdmin):
     list_display_links = ('id', 'name')
 
 
-class BookingAdmin(ModelAdmin):
+class BookingAdmin(VersionAdmin):
 
     actions = [edit_bookings]
     date_hierarchy = 'created'
@@ -130,7 +132,8 @@ class BookingAdmin(ModelAdmin):
     get_date.admin_order_field = 'day__date'
 
     def get_duration(self, booking):
-        return format_minutes_to_time(booking.duration)
+        #return format_minutes_to_time(booking.duration)
+        return booking.duration
     get_duration.admin_order_field = 'duration'
     get_duration.short_description = _(u'Duration')
 
@@ -150,6 +153,12 @@ class BookingAdmin(ModelAdmin):
         return booking.day.user
     get_user.short_description = _(u'User')
     get_user.admin_order_field = 'day__user'
+
+    def save_model(self, request, obj, form, change):
+        position = request.POST.get('position')
+        if not position:
+            obj.next_position()
+            obj.save()
 
 
 class CommissionStatusAdmin(ModelAdmin):
@@ -324,8 +333,7 @@ class DayAdmin(ModelAdmin):
     list_display = ('id', 'user', 'date', 'locked', 'get_booking_sum',
                     'created', 'modified')
     list_filter = ('user', 'locked')
-    readonly_fields = ('user', 'date', 'created', 'created_by', 'modified',
-                       'modified_by')
+    readonly_fields = ('created', 'created_by', 'modified', 'modified_by')
 
     def get_booking_sum(self, day):
         """Display the booking time per day.
@@ -340,7 +348,8 @@ class DayAdmin(ModelAdmin):
             color = 'red'
         else:
             color = 'black'
-        value = format_minutes_to_time(duration)
+        #value = format_minutes_to_time(duration)
+        value = duration
         return '<span style="color: %s;">%s</span>' % (color, value)
     get_booking_sum.short_description = _(u'Duration')
     get_booking_sum.allow_tags = True

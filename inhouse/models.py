@@ -732,6 +732,13 @@ class Day(DefaultInfo):
     def __unicode__(self):
         return self.slugify()
 
+    def slugify(self):
+        """Returns a slugified string of a day.
+
+        :returns: String
+        """
+        return self.date.strftime('%Y/%m/%d')
+
 
 class Department(DefaultInfo):
     name = models.CharField(max_length=100, db_column='kbez',
