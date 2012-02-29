@@ -2,6 +2,11 @@
 
 """Model definitions."""
 
+# ignore too few public methods, pylint: disable=R0903
+# ignore too many lines convention (>1000), pylint: disable=C0302
+# TODO: Find a workaround for auto-generated members
+# there are lots of auto-generated members, pylint: disable=E1101
+
 import calendar
 import cgi
 import datetime

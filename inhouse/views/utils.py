@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+from inhouse.utils import json_ext as json
+
 
 def render(request, template_name, data=None):
     """Helper that renders and returns a response.
