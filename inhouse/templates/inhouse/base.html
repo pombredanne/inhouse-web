@@ -43,11 +43,10 @@
             {% endif %}
           </ul>
           <ul class="nav pull-right">
-            <li><p>{{ user.email }}</p></li>
             <li>
-              <div class="btn-group">
-                <a class="btn btn-mini" href="{% url inhouse:profile %}"><i class="icon-user"></i> {% trans "Profile" %}</a>
-                <a class="btn btn-mini" href="{% url inhouse:logout %}"><i class="icon-arrow-right"></i> {% trans "Log out" %}</a>
+              <div id="profile-buttons" class="btn-group">
+                <a class="btn btn-small" href="{% url inhouse:profile %}"><i class="icon-user"></i> {% trans "Profile" %}</a>
+                <a class="btn btn-small" href="{% url inhouse:logout %}"><i class="icon-off"></i> {% trans "Log out" %}</a>
               </div>
             </li>
           </ul>
@@ -65,7 +64,7 @@
       <ul class="breadcrumb">
       <li>
         {% block breadcrumbs %}
-          <a href="{% url inhouse:home %}" title="{% trans 'To page:' %} {% trans 'Inhouse-Web' %}">{% trans 'Inhouse-Web' %}</a>
+          <a href="{% url inhouse:home %}" title="{% trans 'To page:' %} {% trans 'Home' %}">{% trans 'Home' %}</a>
         {% endblock %}
       </li>
       </ul>
@@ -130,6 +129,7 @@
     pu.ui.show_message('{{ message.tags }}', '{{ message|escapejs }}');
   {% endfor %}
   </script>
+
 {% endif %}
 
 <script type="text/javascript">pu.post_init();</script>
