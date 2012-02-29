@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from reversion.admin import VersionAdmin
 
-#from library import format_minutes_to_time
+from inhouse.templatetags.utils import format_minutes_to_time
 from inhouse import models
 
 
@@ -132,8 +132,7 @@ class BookingAdmin(VersionAdmin):
     get_date.admin_order_field = 'day__date'
 
     def get_duration(self, booking):
-        #return format_minutes_to_time(booking.duration)
-        return booking.duration
+        return format_minutes_to_time(booking.duration)
     get_duration.admin_order_field = 'duration'
     get_duration.short_description = _(u'Duration')
 
@@ -348,8 +347,7 @@ class DayAdmin(ModelAdmin):
             color = 'red'
         else:
             color = 'black'
-        #value = format_minutes_to_time(duration)
-        value = duration
+        value = format_minutes_to_time(duration)
         return '<span style="color: %s;">%s</span>' % (color, value)
     get_booking_sum.short_description = _(u'Duration')
     get_booking_sum.allow_tags = True

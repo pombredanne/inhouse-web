@@ -3,3 +3,4 @@
 from inhouse.tests.forms import *
 from inhouse.tests.models import *
 from inhouse.tests.views import *
+from inhouse.tests.template_tags import *
