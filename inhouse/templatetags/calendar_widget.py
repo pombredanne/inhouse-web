@@ -36,6 +36,19 @@ def do_calendar(parser, token):
 class Calendar(HTMLCalendar):
     """A HTML calendar with small adjustments."""
 
+    def formatday(self, day, weekday):
+        """Return a day as a table cell."""
+        if day != 0:
+            cssclass = self.cssclasses[weekday]
+            if datetime.date.today() == datetime.date(self.year, self.month, day):
+                cssclass += ' today'
+            #if day == 0:
+            #    return '<td class="noday">&nbsp;</td>' # day outside month
+            #else:
+            return '<td class="%s">%d</td>' % (cssclass, day)
+        else:
+            return '<td class="noday">&nbsp;</td>' # day outside month
+
     def formatmonthname(self, theyear, themonth, withyear=True):
         v = []
         """Return a month name as a table row."""
@@ -51,6 +64,10 @@ class Calendar(HTMLCalendar):
         v.append('</th>')
         v.append('</tr>')
         return ''.join(v)
+
+    def formatmonth(self, year, month):
+        self.year, self.month = year, month
+        return super(Calendar, self).formatmonth(year, month)
 
 
 class CalendarNode(template.Node):
