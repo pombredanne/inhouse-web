@@ -4,6 +4,7 @@
 
 # ignore too few public methods, pylint: disable=R0903
 
+import datetime
 import logging
 import traceback
 
@@ -78,6 +79,25 @@ class AutoCurrentUserMiddleware(object):
         """Removes callback attached in process_request."""
         # exception unused, pylint: disable=W0613
         self._disconnect_callback(request)
+
+
+class CalendarSessionMiddleware(object):
+
+    def process_request(self, request):
+        today = datetime.date.today()
+        if (not 'calendar_month' in request.session
+            or not request.session['calendar_month']):
+            request.session['calendar_month'] = today.month
+        if (not 'calendar_year' in request.session
+            or not request.session['calendar_year']):
+            request.session['calendar_year'] = today.year
+        if request.method == 'GET':
+            if 'calendar_month' in request.GET:
+                request.session['calendar_month'] = request.GET.get(
+                    'calendar_month', None)
+            if 'calendar_year' in request.GET:
+                request.session['calendar_year'] = request.GET.get(
+                    'calendar_year', None)
 
 
 

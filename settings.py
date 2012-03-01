@@ -125,6 +125,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'goog.middleware.GoogDevelopmentMiddleware',
+    'inhouse.middleware.CalendarSessionMiddleware',
 )
 
 ROOT_URLCONF = 'urls'

@@ -368,7 +368,7 @@ class BillingType(models.Model):
         return self.name
 
 
-class Booking(DefaultInfo):
+class Booking(DefaultInfo, StarredItemMixin):
     title = models.CharField(db_column='titel', max_length=255,
                              verbose_name=_(u'Title'))
     description = models.TextField(db_column='bem',
