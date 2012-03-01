@@ -2,17 +2,14 @@
 {% load calendar_widget %}
 
 <div class="calendar">
-
   {% get_calendar as calendar %}
-
-
   <form action="" method="GET">{% csrf_token %}
     <div class="form-actions">
-      <select name="calendar_month" id="month" class="input-small">
+      <select name="calendar_month" id="month" class="span1">
         {% for no, date in calendar.months %}{% ifequal no calendar.month %}<option selected="selected" value="{{ no }}">{{ date|date:"F" }}</option>{% else %}{% ifequal no today.month %}<option style="font-weight: bold;" value="{{ no }}">{{ date|date:"F" }}</option>{% else %}<option value="{{ no }}">{{ date|date:"F" }}</option>{% endifequal %}{% endifequal %}
         {% endfor %}
       </select>
-      <select name="calendar_year" id="year" class="input-small">
+      <select name="calendar_year" id="year" class="span1">
         {% for no, name in calendar.years %}{% ifequal no calendar.year %}<option style="font-weight: bold;" selected="selected" value="{{ no }}">{{ name }}</option>{% else %}{% ifequal no today.year %}<option style="font-weight: bold;" value="{{ no }}">{{ name }}</option>{% else %}<option value="{{ no }}">{{ name }}</option>{% endifequal %}{% endifequal %}
         {% endfor %}
       </select>

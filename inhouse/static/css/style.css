@@ -639,7 +639,7 @@ a.thumbnail:hover{border-color:#1155cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .login_form input{font-size:14px;}
 .navbar{margin:0px;}
 .navbar-inner{background:linear-gradient(#fafafa, #eaeaea);background:-moz-linear-gradient(#fafafa, #eaeaea);background:-webkit-linear-gradient(#fafafa, #eaeaea);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";background:linear-gradient(#fafafa, #eaeaea);z-index:1030;border-radius:0px;padding:0;}
-.navbar .nav>li>a{color:#2c2e38;text-shadow:none;}
+.navbar .nav>li>a{color:#2c2e38;font-weight:bold;text-shadow:none;}
 .navbar .nav>li>a:hover{color:#1155cc;cursor:pointer;text-decoration:none;}
 .toolbar{background-color:#FAFAFA;border-bottom:1px solid #DDD;box-shadow:0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1);color:#333333;height:40px;padding:0 20px;}
 .toolbar .breadcrumb{margin:0;padding:0;background:none;border:none;font-weight:normal;line-height:40px;}
@@ -687,7 +687,7 @@ table.year thead:first-child tr:first-child th:last-child,table.year tbody:first
 table.year thead:last-child tr:last-child th:first-child,table.year tbody:last-child tr:last-child td:first-child{-webkit-border-radius:0 0 0 4px;-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;}
 table.year thead:last-child tr:last-child th:last-child,table.year tbody:last-child tr:last-child td:last-child{-webkit-border-radius:0 0 4px 0;-moz-border-radius:0 0 4px 0;border-radius:0 0 4px 0;}
 table.year th,table.year td{padding:4px 5px;}
-table.month td.today,table.month td.today{background-color:#FFC !important;}
+table.month td.today,table.month td.today{background-color:#ffffd6 !important;}
 .goog-date-picker,.goog-date-picker th,.goog-date-picker td{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;}
 .goog-date-picker{-moz-user-focus:normal;-moz-user-select:none;position:absolute;border:1px solid #818085;float:left;padding:2px;color:#767676;background:#F6F6F6;cursor:default;z-index:1010;}
 .goog-date-picker th{text-align:center;}

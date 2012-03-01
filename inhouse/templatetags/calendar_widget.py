@@ -9,6 +9,7 @@ import datetime
 import re
 
 from django import template
+from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
@@ -39,13 +40,12 @@ class Calendar(HTMLCalendar):
     def formatday(self, day, weekday):
         """Return a day as a table cell."""
         if day != 0:
+            date = datetime.date(self.year, self.month, day)
             cssclass = self.cssclasses[weekday]
-            if datetime.date.today() == datetime.date(self.year, self.month, day):
+            if datetime.date.today() == date:
                 cssclass += ' today'
-            #if day == 0:
-            #    return '<td class="noday">&nbsp;</td>' # day outside month
-            #else:
-            return '<td class="%s">%d</td>' % (cssclass, day)
+            return ('<td class="%s"><a href="#" title="%s">%d</a></td>'
+                    % (cssclass, date_format(date, 'SHORT_DATE_FORMAT'), day))
         else:
             return '<td class="noday">&nbsp;</td>' # day outside month
 
@@ -58,8 +58,10 @@ class Calendar(HTMLCalendar):
             s = '%s' % month_name[themonth]
         v.append('<tr><th colspan="7" class="month">%s' % s)
         v.append('<div class="btn-group" style="float:right;">')
-        v.append('<a class="btn btn-mini" title="" href="#"><i class="icon-arrow-left"></i></a>')
-        v.append('<a class="btn btn-mini" title="" href="#"><i class="icon-arrow-right"></i></a>')
+        v.append(('<a class="btn btn-mini" title="%s" href="#"><i'
+        ' class="icon-arrow-left"></i></a>') % _(u'Show previous month'))
+        v.append(('<a class="btn btn-mini" title="%s" href="#"><i'
+        ' class="icon-arrow-right"></i></a>') % _(u'Show next month'))
         v.append('</div>')
         v.append('</th>')
         v.append('</tr>')
