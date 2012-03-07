@@ -80,11 +80,14 @@
       <div class="row-fluid">
         <div class="span2">
           {% include "inhouse/snippets/calendar.html" %}
+          {% block sidebar-left %}{% endblock %}
         </div>
         <div class="span8">
-          {% block content %}CONTENT GOES HERE{% endblock %}
+          {% block content %}{% endblock %}
         </div>
-        <div class="span2"></div>
+        <div class="span2">
+          {% block sidebar-right %}{% endblock %}
+        </div>
       </div>
     </div>
   </section>
