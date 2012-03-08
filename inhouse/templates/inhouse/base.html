@@ -79,7 +79,9 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-          {% include "inhouse/snippets/calendar.html" %}
+          {% if not user.is_anonymous %}
+            {% include "inhouse/snippets/calendar.html" %}
+          {% endif %}
           {% block sidebar-left %}{% endblock %}
         </div>
         <div class="span8">

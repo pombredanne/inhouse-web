@@ -58,10 +58,12 @@ class Calendar(HTMLCalendar):
             s = '%s' % month_name[themonth]
         v.append('<tr><th colspan="7" class="month">%s' % s)
         v.append('<div class="btn-group" style="float:right;">')
-        v.append(('<a class="btn btn-mini" title="%s" href="#"><i'
-        ' class="icon-arrow-left"></i></a>') % _(u'Show previous month'))
-        v.append(('<a class="btn btn-mini" title="%s" href="#"><i'
-        ' class="icon-arrow-right"></i></a>') % _(u'Show next month'))
+        v.append(('<a class="btn btn-mini" title="%s" href=""'
+                  ' onclick="">'
+                  '<i class="icon-arrow-left"></i></a>') % _(u'Show previous month'))
+        v.append(('<a class="btn btn-mini" title="%s" href=""'
+                  ' onclick="">'
+                  '<i class="icon-arrow-right"></i></a>') % _(u'Show next month'))
         v.append('</div>')
         v.append('</th>')
         v.append('</tr>')

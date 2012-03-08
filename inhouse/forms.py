@@ -190,7 +190,8 @@ class ReadonlyWidget(forms.TextInput):
             parts = [u'<span id="%s-ro" class="uneditable-input">%s</span>'
                      % (final_attrs['id'], (self._format_value(value)))]
         else:
-            parts = [u'<span class="uneditable-input">%s</span>' % self._format_value(value)]
+            parts = [u'<span class="uneditable-input">%s</span>'
+                     % self._format_value(value)]
         if self._show_hidden:
             parts.append(u'<input%s />' % flatatt(final_attrs))
         return mark_safe(u''.join(parts))
