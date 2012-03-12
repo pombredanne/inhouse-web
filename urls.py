@@ -18,4 +18,5 @@ urlpatterns = patterns(
     (r'^admin/', include(admin.site.urls)),
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     (r'', include('inhouse.urls', namespace='inhouse')),
+    (r'^api/', include('webservice.urls', namespace='webservice')),
 )

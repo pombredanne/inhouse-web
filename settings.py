@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'goog',
     'issues',
     'inhouse',
+    'webservice',
 )
 
 AUTH_PROFILE_MODULE = 'inhouse.UserProfile'

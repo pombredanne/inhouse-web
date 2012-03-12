@@ -6,3 +6,4 @@ pil==1.1.7
 -e git+git://github.com/hkage/django-issue-synchronisation.git#egg=django-issue-synchronisation
 -e git+https://github.com/andialbrecht/django-goog.git#egg=goog
 django-reversion==1.4
+django-piston
