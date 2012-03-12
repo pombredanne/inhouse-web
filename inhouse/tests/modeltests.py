@@ -80,6 +80,23 @@ class TestAddress(TestCase):
         self.assertEqual(ret, 'foo1<br />foo2<br />foo3<br />foo4')
 
 
+class TestBooking(TestCase):
+
+    fixtures = ['test_data']
+
+    def test_is_open(self):
+        pass
+
+    def test_get_closing_reason_tuple(self):
+        pass
+
+    def test_get_closing_reason_string(self):
+        pass
+
+    def test_next_position(self):
+        pass
+
+
 class TestDay(TestCase):
 
     def test_slugify(self):
@@ -88,6 +105,21 @@ class TestDay(TestCase):
         self.assertEqual(day.slugify(), u'2010/01/12')
         day.date = datetime.date(2012, 7, 15)
         self.assertEqual(day.slugify(), u'2012/07/15')
+
+
+class TestStarredItemMixin(TestCase):
+
+    def test_get_starred(self):
+        pass
+
+    def test_is_starred(self):
+        pass
+
+    def test_add_star(self):
+        pass
+
+    def test_remove_star(self):
+        pass
 
 
 class TestTimer(TestCase):

@@ -149,7 +149,7 @@ def lint(pylint=CMD_PYLINT, pylint_args=''):
 def load_dev_data():
     django.settings_module('settings_debug')
     local('python manage.py loaddata dev_users')
-    local('python manage.py loaddata test_data')
+    #local('python manage.py loaddata test_data')
 
 
 @task
@@ -188,6 +188,20 @@ def recreate_initial_data():
     local('python manage.py syncdb --noinput')
     local('python manage.py loaddata %s' % ' '.join(INITIAL_FIXTURES))
     local('python manage.py dumpdata -a -e inhouse.AuthUserGroup -e contenttypes.ContentType --indent=2> inhouse/fixtures/_initial_data.json')
+
+
+@task
+def test(select=None, verbosity=1, fast=0):
+    """Run unittests."""
+    if select is not None:
+        os.putenv('TEST_NAME_REGEX', select)
+    enable_initial_data()
+    cmd = ['python', 'manage.py', 'test', '--verbosity=%s' % verbosity]
+    if fast:
+        cmd.append('--failfast')
+    cmd.extend(['inhouse',])
+    local(' '.join(cmd))
+    disable_initial_data()
 
 
 @task

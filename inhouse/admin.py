@@ -289,7 +289,7 @@ class CustomerAdmin(ModelAdmin):
                        'communication',
                        )}),
         (_(u'Billing'), {
-            'fields': ('day_rate',
+            'fields': ('daily_rate',
                        )}),
         (_(u'Timestamp'), {
             'classes': ('collapse',),
@@ -429,9 +429,9 @@ class InvoiceAdmin(ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('project',
-                       'internal_no',
+                       'no',
                        'valid_from',
-                       'valid_to',
+                       'valid_until',
                        )}),
         (_(u'Timestamp'), {
             'classes': ('collapse',),
@@ -441,7 +441,7 @@ class InvoiceAdmin(ModelAdmin):
                        'modified_by'
                        )}),
     )
-    list_display = ('id', 'project', 'internal_no', 'valid_from', 'valid_to',
+    list_display = ('id', 'project', 'no', 'valid_from', 'valid_until',
                     'created', 'modified')
     list_display_links = ('id',)
     list_filter = ('project',)
@@ -482,7 +482,7 @@ class NewsAdmin(ModelAdmin):
             'fields': ('title',
                        'message',
                        'valid_from',
-                       'valid_to',
+                       'valid_until',
                        )}),
         (_(u'Timestamp'), {
             'classes': ('collapse',),
@@ -493,7 +493,7 @@ class NewsAdmin(ModelAdmin):
                        )}),
     )
     inlines = [NewsGroupInline]
-    list_display = ('id', 'title', 'valid_from', 'valid_to', 'created',
+    list_display = ('id', 'title', 'valid_from', 'valid_until', 'created',
                     'modified')
     list_display_links = ('id', 'title')
     readonly_fields = ('created', 'created_by', 'modified', 'modified_by')
@@ -633,9 +633,8 @@ class ProjectRateForm(forms.ModelForm):
         data = self.cleaned_data
         project = data['project']
         valid_from = data['valid_from']
-        valid_to = data['valid_to']
-        print valid_from, valid_to
-        if valid_from > valid_to:
+        valid_until = data['valid_until']
+        if valid_from > valid_until:
             raise forms.ValidationError(_(u'"Valid from" must be smaller than'
                                           u' "valid to".'))
         return data
@@ -647,8 +646,8 @@ class ProjectRateAdmin(ModelAdmin):
         (None, {
             'fields': ('project',
                        'valid_from',
-                       'valid_to',
-                       'hour_rate',
+                       'valid_until',
+                       'hourly_rate',
                        )}),
         (_(u'Timestamp'), {
             'classes': ('collapse',),
@@ -659,7 +658,7 @@ class ProjectRateAdmin(ModelAdmin):
                        )}),
     )
     form = ProjectRateForm
-    list_display = ('id', 'project', 'valid_from', 'valid_to', 'hour_rate',
+    list_display = ('id', 'project', 'valid_from', 'valid_until', 'hourly_rate',
                     'created', 'modified')
     list_display_links = ('id',)
     list_filter = ('project',)
@@ -681,7 +680,7 @@ class ProjectStepAdmin(ModelAdmin):
             'fields': ('coefficient',
                        'duration',
                        'flat_rate',
-                       'day_rate',
+                       'daily_rate',
                        )}),
         (_(u'Timestamp'), {
             'classes': ('collapse',),
@@ -870,7 +869,7 @@ class UserProfileAdmin(ModelAdmin):
             'fields': ('company',
                        'personnel_no',
                        'job',
-                       'day_rate',
+                       'daily_rate',
                        'hours_per_week'
                        )}),
         (_(u'Timestamp'), {
@@ -882,7 +881,7 @@ class UserProfileAdmin(ModelAdmin):
                        )}),
     )
     list_display = ('id', 'personnel_no', 'user', 'birthday',
-                    'address', 'company', 'job', 'day_rate', 'created',
+                    'address', 'company', 'job', 'daily_rate', 'created',
                     'modified')
     list_display_links = ('id', 'user')
     list_filter = ('company',)

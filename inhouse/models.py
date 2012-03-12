@@ -225,38 +225,32 @@ class Address(DefaultInfo):
     group = models.ForeignKey('AddressGroup', db_column='adgid',
                               blank=True, null=True,
                               verbose_name=_(u'Address group'))
-    name1 = models.CharField(max_length=200, db_column='name1',
+    name1 = models.CharField(max_length=200, verbose_name=_(u'Name'))
+    name2 = models.CharField(max_length=200, blank=True, null=True,
                              verbose_name=_(u'Name'))
-    name2 = models.CharField(max_length=200, db_column='name2',
-                             blank=True, null=True,
+    name3 = models.CharField(max_length=200, blank=True, null=True,
                              verbose_name=_(u'Name'))
-    name3 = models.CharField(max_length=200, db_column='name3',
-                             blank=True, null=True,
+    name4 = models.CharField(max_length=200, blank=True, null=True,
                              verbose_name=_(u'Name'))
-    name4 = models.CharField(max_length=200, db_column='name4',
-                             blank=True, null=True,
-                             verbose_name=_(u'Name'))
-    street = models.CharField(db_column='strasse', max_length=100,
-                              blank=True, null=True,
+    street = models.CharField(max_length=100, blank=True, null=True,
                               verbose_name=_(u'Street'))
-    zip_code = models.CharField(db_column='plz', max_length=30,
+    zip_code = models.CharField(db_column='zip', max_length=30,
                                 blank=True, null=True,
                                 verbose_name=_(u'ZIP code'))
-    city = models.CharField(db_column='ort', max_length=50,
-                            blank=True, null=True,
+    city = models.CharField(max_length=50, blank=True, null=True,
                             verbose_name=_(u'City'))
-    country = models.ForeignKey('Country', db_column='laid',
+    country = models.ForeignKey('Country', db_column='couid',
                                 blank=True, null=True,
                                 verbose_name=_(u'Country'))
-    post_office_box = models.CharField(db_column='pf', max_length=100,
+    post_office_box = models.CharField(db_column='officebox', max_length=100,
                                        blank=True, null=True,
                                        verbose_name=_(u'Post office box'))
-    box_zip_code = models.IntegerField(db_column='pfplz',
+    box_zip_code = models.IntegerField(db_column='boxzip',
                                        blank=True, null=True,
                                        verbose_name=_(u'Box office code'))
 
     class Meta:
-        db_table = u'adresse'
+        db_table = u'address'
         db_column_prefix = u'adr_'
         verbose_name = _(u'Address')
         verbose_name_plural = _(u'Addresses')
@@ -319,14 +313,13 @@ class Address(DefaultInfo):
 
 
 class AddressGroup(models.Model):
-    name = models.CharField(db_column='kbez', max_length=100,
-                            unique=True, verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=100, unique=True,
+                            verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
 
     class Meta:
-        db_table = u'k_adgrp'
+        db_table = u'address_group'
         db_column_prefix = u'adg_'
         ordering = ('name',)
         verbose_name = _(u'Address group')
@@ -351,15 +344,14 @@ class AuthUserGroup(models.Model):
 
 
 class BillingType(models.Model):
-    name = models.CharField(db_column='kbez', max_length=100,
-                            unique=True, verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=100, unique=True,
+                            verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
 
     class Meta:
-        db_table = u'k_abrechnungsart'
-        db_column_prefix = u'aba_'
+        db_table = u'billingtype'
+        db_column_prefix = u'bt_'
         ordering = ('name',)
         verbose_name = _(u'Billing type')
         verbose_name_plural = _(u'Billing types')
@@ -369,27 +361,22 @@ class BillingType(models.Model):
 
 
 class Booking(DefaultInfo, StarredItemMixin):
-    title = models.CharField(db_column='titel', max_length=255,
-                             verbose_name=_(u'Title'))
-    description = models.TextField(db_column='bem',
-                                   verbose_name=_(u'Description'))
-    day = models.ForeignKey('Day', db_column='taid',
+    title = models.CharField(max_length=255, verbose_name=_(u'Title'))
+    description = models.TextField(verbose_name=_(u'Description'))
+    day = models.ForeignKey('Day', db_column='daid',
                             verbose_name=_(u'Day'))
-    position = models.IntegerField(db_column='pos',
-                                   verbose_name=_(u'Position'))
+    position = models.IntegerField(verbose_name=_(u'Position'))
     project = models.ForeignKey('Project', db_column='prid',
                                 verbose_name=_(u'Project'))
     # TODO: Disallow step deletion?
-    step = models.ForeignKey('ProjectStep', db_column='psid',
+    step = models.ForeignKey('ProjectStep', db_column='prsid',
                              blank=True, null=True, on_delete=models.SET_NULL,
                              verbose_name=_(u'Project step'))
-    issue = models.ForeignKey(Issue, db_column='tiid', blank=True,
-                              null=True, verbose_name=_(u'Issue'))
-    from_time = models.TimeField(db_column='von',
-                                 blank=True, null=True,
+    issue = models.ForeignKey(Issue, blank=True, null=True,
+                              verbose_name=_(u'Issue'))
+    from_time = models.TimeField(blank=True, null=True, db_column='from',
                                  verbose_name=_(u'Start'))
-    to_time = models.TimeField(db_column='bis',
-                               blank=True, null=True,
+    to_time = models.TimeField(blank=True, null=True, db_column='to',
                                verbose_name=_(u'End'))
     #from_time = models.DecimalField(db_column='st_von',
                                     #max_digits=5, decimal_places=3,
@@ -399,21 +386,20 @@ class Booking(DefaultInfo, StarredItemMixin):
                                   #max_digits=5, decimal_places=3,
                                   #blank=True, null=True,
                                   #verbose_name=_(u'To'))
-    duration = models.DecimalField(db_column='std', max_digits=7,
-                                   decimal_places=3,
+    duration = models.DecimalField(max_digits=7, decimal_places=3,
                                    verbose_name=_(u'Duration'))
-    location = models.CharField(db_column='ort', max_length=250,
-                                blank=True, null=True,)
+    location = models.CharField(max_length=250, blank=True, null=True,
+                                verbose_name=_(u'Location'))
     #invoice_no = models.IntegerField(db_column='st_rnr',
     #                                 blank=True, null=True,
     #                                 verbose_name=_(u'Invoice no.'))
-    invoice = models.ForeignKey('Invoice', db_column='abrid', blank=True,
+    invoice = models.ForeignKey('Invoice', db_column='invid', blank=True,
                                 null=True, on_delete=models.SET_NULL,
                                 verbose_name=_(u'Invoice'))
-    coefficient = models.DecimalField(db_column='faktor', max_digits=4,
+    coefficient = models.DecimalField(db_column='cos', max_digits=4,
                                       decimal_places=2, blank=True, null=True,
                                       verbose_name=_(u'External coefficient'))
-    external_coefficient = models.DecimalField(db_column='pfaktor',
+    external_coefficient = models.DecimalField(db_column='ecos',
                                                max_digits=4, decimal_places=2,
                                                blank=True, null=True,
                                                verbose_name=_(u'Coefficient'))
@@ -422,8 +408,8 @@ class Booking(DefaultInfo, StarredItemMixin):
     #status = models.ForeignKey('BookingStatus', db_column='st_sts')
 
     class Meta:
-        db_table = u'stunde'
-        db_column_prefix = u'st_'
+        db_table = u'booking'
+        db_column_prefix = u'b_'
         verbose_name = _(u'Booking')
         verbose_name_plural = _(u'Bookings')
 
@@ -486,15 +472,14 @@ class Booking(DefaultInfo, StarredItemMixin):
 
 
 class CommissionStatus(models.Model):
-    name = models.CharField(db_column='kbez', max_length=100, unique=True,
+    name = models.CharField(max_length=100, unique=True,
                             verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
 
     class Meta:
-        db_table = u'k_beauftragungsstatus'
-        db_column_prefix = u'bs_'
+        db_table = u'commission_status'
+        db_column_prefix = u'cs_'
         ordering = ('name',)
         verbose_name = _(u'Commission status')
         verbose_name_plural = _(u'Commission status')
@@ -504,23 +489,21 @@ class CommissionStatus(models.Model):
 
 
 class Communication(DefaultInfo):
-    email = models.EmailField(db_column='email', verbose_name=_(u'E-mail'))
-    phone_landline = models.CharField(db_column='tel1', max_length=40,
-                                      blank=True, null=True,
+    email = models.EmailField(verbose_name=_(u'E-mail'))
+    phone_landline = models.CharField(max_length=40, blank=True, null=True,
+                                      db_column='phone1',
                                       verbose_name=_(u'Phone no. (landline)'))
-    phone_mobile = models.CharField(db_column='tel2', max_length=40,
-                                    blank=True, null=True,
+    phone_mobile = models.CharField(max_length=40, blank=True, null=True,
+                                    db_column='phone2',
                                     verbose_name=_(u'Phone no. (mobile)'))
-    fax = models.CharField(db_column='fax', max_length=40,
-                           blank=True, null=True,
+    fax = models.CharField(max_length=40, blank=True, null=True,
                            verbose_name=_(u'Fax no.'))
-    url = models.URLField(db_column='url', max_length=200,
-                          blank=True, null=True,
+    url = models.URLField(max_length=200, blank=True, null=True,
                           verbose_name=_(u'URL'))
 
     class Meta:
-        db_table = u'kommunikation'
-        db_column_prefix = u'kom_'
+        db_table = u'communication'
+        db_column_prefix = u'coc_'
         verbose_name = _(u'Communication data')
         verbose_name_plural = _(u'Communication data')
 
@@ -560,34 +543,30 @@ class Communication(DefaultInfo):
 
 
 class Company(DefaultInfo):
-    name = models.CharField(max_length=400, db_column='fir_name', unique=True,
-                            verbose_name=_(u'Name'))
-    description = models.TextField(db_column='fir_bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=400, unique=True, verbose_name=_(u'Name'))
+    description = models.TextField(blank=True, null=True,
                                    verbose_name=_(u'Description'))
-    address = models.ForeignKey('Address', db_column='fir_adrid',
+    address = models.ForeignKey('Address', db_column='adrid',
                                 verbose_name=_(u'Address'))
-    communication = models.ForeignKey('Communication', db_column='fir_komid',
+    communication = models.ForeignKey('Communication', db_column='cocid',
                                       verbose_name=_(u'Communication data'))
-    bank = models.CharField(db_column='fir_bbez', max_length=100,
-                            blank=True, null=True,
+    bank = models.CharField(max_length=100, blank=True, null=True,
                             verbose_name=_(u'Bank'))
-    bank_code = models.CharField(db_column='fir_blz', max_length=8,
-                                 blank=True, null=True,
+    bank_code = models.CharField(max_length=8, blank=True, null=True,
+                                 db_column='bankcode',
                                  verbose_name=_(u'Bank code no.'))
-    account_no = models.CharField(db_column='fir_kto', max_length=10,
+    account_no = models.CharField(max_length=10, db_column='accountno',
                                   blank=True, null=True,
                                   verbose_name=_(u'Account no.'))
-    invoice_no = models.IntegerField(db_column='fir_renr',
-                                     default=0,
+    invoice_no = models.IntegerField(default=0, db_column='invoiceno',
                                      verbose_name=_(u'Invoice no.'))
 
     # bbez, mwa, mwb, aknr
 
 
     class Meta:
-        db_table = u'firma'
-        db_column_prefix = u'fir_'
+        db_table = u'company'
+        db_column_prefix = u'com_'
         verbose_name = _(u'Company')
         verbose_name_plural = _(u'Companies')
 
@@ -597,36 +576,32 @@ class Company(DefaultInfo):
 
 class Contact(DefaultInfo):
     salutation = models.ForeignKey('Salutation', blank=True, null=True,
-                                   db_column='anid',
+                                   db_column='salid',
                                    verbose_name=_(u'Salutation'))
-    title = models.CharField(db_column='titel', max_length=10,
-                             blank=True, null=True,
+    title = models.CharField(max_length=10, blank=True, null=True,
                              verbose_name=_(u'Title'))
-    first_name = models.CharField(db_column='vname', max_length=30,
+    first_name = models.CharField(max_length=30, db_column='firstname',
                                   verbose_name=_(u'First name'))
-    last_name = models.CharField(db_column='nname', max_length=30,
+    last_name = models.CharField(max_length=30, db_column='lastname',
                                  verbose_name=_(u'Surname'))
-    description = models.TextField(db_column='bez',
-                                   blank=True, null=True,
+    description = models.TextField(blank=True, null=True,
                                    verbose_name=_(u'Description'))
-    customer = models.ForeignKey('Customer', db_column='knid',
+    customer = models.ForeignKey('Customer', db_column='cusid',
                                  verbose_name=_(u'Customer'))
-    position = models.IntegerField(db_column='lfdnr',
-                                   verbose_name=_(u'Position'))
-    department = models.CharField(db_column='abteilung', max_length=30,
-                                  blank=True, null=True,
+    position = models.IntegerField(verbose_name=_(u'Position'))
+    department = models.CharField(max_length=30, blank=True, null=True,
                                   verbose_name=_(u'Department'))
     address = models.ForeignKey('Address', db_column='adrid',
                                 blank=True, null=True,
                                 verbose_name=_(u'Address'))
-    communication = models.ForeignKey('Communication', db_column='komid',
+    communication = models.ForeignKey('Communication', db_column='cocid',
                                       verbose_name=_(u'Communication data'))
-    birthday = models.DateField(db_column='gebdat', blank=True, null=True,
+    birthday = models.DateField(blank=True, null=True,
                                 verbose_name=_(u'Birthday'))
 
     class Meta:
-        db_table = u'ansprech'
-        db_column_prefix = u'as_'
+        db_table = u'contact'
+        db_column_prefix = u'con_'
         verbose_name = _(u'Contact')
         verbose_name_plural = _(u'Contacts')
 
@@ -638,22 +613,19 @@ class Contact(DefaultInfo):
 class Country(models.Model):
     name = models.CharField(db_column='cid', max_length=100, unique=True,
                             verbose_name=_(u'Name'))
-    printable_name = models.CharField(db_column='kbez', max_length=100,
+    printable_name = models.CharField(max_length=100, db_column='printname',
                                       verbose_name=_(u'Printable name'))
-    num_code = models.PositiveSmallIntegerField(db_column='nr',
-                                                unique=True,
+    num_code = models.PositiveSmallIntegerField(unique=True,
+                                                db_column='numcode',
                                                 verbose_name=_(u'Numeric code'))
-    iso2 = models.CharField(db_column='iso2', max_length=2, unique=True,
-                            verbose_name=_(u'CID'))
-    iso3 = models.CharField(db_column='iso3', max_length=3, unique=True,
-                            verbose_name=_(u'CID'))
-    dial_code = models.CharField(db_column='vorwahl', max_length=10,
-                                 null=True,
+    iso2 = models.CharField(max_length=2, unique=True, verbose_name=_(u'ISO2'))
+    iso3 = models.CharField(max_length=3, unique=True, verbose_name=_(u'ISO3'))
+    dial_code = models.CharField(max_length=10, null=True, db_column='dialcode',
                                  verbose_name=_(u'Dial code'))
 
     class Meta:
-        db_table = u'k_land'
-        db_column_prefix = u'la_'
+        db_table = u'country'
+        db_column_prefix = u'cou_'
         verbose_name = _(u'Country')
         verbose_name_plural = _(u'Countries')
 
@@ -662,31 +634,28 @@ class Country(models.Model):
 
 
 class Customer(DefaultInfo):
-    name1 = models.CharField(max_length=400, db_column='name1',
+    name1 = models.CharField(max_length=400, verbose_name=_(u'Name'))
+    name2 = models.CharField(max_length=200, blank=True, null=True,
                              verbose_name=_(u'Name'))
-    name2 = models.CharField(max_length=200, db_column='name2',
-                             blank=True, null=True,
-                             verbose_name=_(u'Name'))
-    name3 = models.CharField(max_length=200, db_column='name3',
-                             blank=True, null=True,
+    name3 = models.CharField(max_length=200,blank=True, null=True,
                              verbose_name=_(u'Name'))
     salutation = models.ForeignKey('Salutation', blank=True, null=True,
-                                   db_column='anid',
+                                   db_column='salid',
                                    verbose_name=_(u'Salutation'))
     address = models.ForeignKey('Address', db_column='adrid',
                                 verbose_name=_(u'Address'))
-    communication = models.ForeignKey('Communication', db_column='komid',
+    communication = models.ForeignKey('Communication', db_column='cocid',
                                       blank=True, null=True,
                                       verbose_name=_(u'Communication data'))
-    day_rate = models.DecimalField(db_column='tagessatz', max_digits=14,
-                                   decimal_places=2, blank=True, null=True,
-                                   verbose_name=_(u'Daily rate'))
+    daily_rate = models.DecimalField(max_digits=14, decimal_places=2,
+                                     blank=True, db_column='dailyrate',
+                                     null=True, verbose_name=_(u'Daily rate'))
 
     # zpoa, tlx, loe, fre1, fre2, fre3, debnr
 
     class Meta:
-        db_table = u'kunde'
-        db_column_prefix = u'kn_'
+        db_table = u'customer'
+        db_column_prefix = u'cus_'
         unique_together = ('name1', 'name2', 'name3')
         verbose_name = _(u'Customer')
         verbose_name_plural = _(u'Customers')
@@ -722,15 +691,13 @@ class Customer(DefaultInfo):
 
 
 class Day(DefaultInfo):
-    user = models.ForeignKey(User, verbose_name=_(u'User'))
-    date = models.DateField(db_column='dat',
-                            verbose_name=_(u'Date'),)
-    locked = models.BooleanField(db_column='sperr', default=False,
-                                 verbose_name=_(u'Locked?'),)
+    user = models.ForeignKey(User, db_column='uid', verbose_name=_(u'User'))
+    date = models.DateField(verbose_name=_(u'Date'),)
+    locked = models.BooleanField(default=False, verbose_name=_(u'Locked?'),)
 
     class Meta:
-        db_table = u'tag'
-        db_column_prefix = u'ta_'
+        db_table = u'day'
+        db_column_prefix = u'da_'
         unique_together = ('user', 'date')
         verbose_name = _(u'Day')
         verbose_name_plural = _(u'Days')
@@ -747,12 +714,14 @@ class Day(DefaultInfo):
 
 
 class Department(DefaultInfo):
-    name = models.CharField(max_length=100, db_column='kbez',
-                            unique=True, verbose_name=_(u'Name'))
+    name = models.CharField(max_length=100, unique=True,
+                            verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
+                                   verbose_name=_(u'Description'))
 
     class Meta:
-        db_table = u'abteilung'
-        db_column_prefix = u'abt_'
+        db_table = u'department'
+        db_column_prefix = u'dep_'
         verbose_name = _(u'Department')
         verbose_name_plural = _(u'Departments')
 
@@ -761,12 +730,12 @@ class Department(DefaultInfo):
 
 
 class DepartmentUser(DefaultInfo):
-    department = models.ForeignKey('Department', db_column='abtid')
-    user = models.ForeignKey(User, db_column='userid')
+    department = models.ForeignKey('Department', db_column='depid')
+    user = models.ForeignKey(User, db_column='uid')
 
     class Meta:
-        db_table = u'abteilungnutzer'
-        db_column_prefix = u'ppg_'
+        db_table = u'department_user'
+        db_column_prefix = u'du_'
         unique_together = ('department', 'user')
         verbose_name = _(u'Department member')
         verbose_name_plural = _(u'Department members')
@@ -778,17 +747,17 @@ class DepartmentUser(DefaultInfo):
 class Invoice(DefaultInfo):
     project = models.ForeignKey('Project', db_column='prid',
                                 verbose_name=_(u'Project'))
-    internal_no = models.IntegerField(db_column='rnr', blank=True,
-                                      null=True,
-                                      verbose_name=_(u'Internal no.'))
-    valid_from = models.DateField(db_column='von',
+    # The companies invoice no.
+    no = models.IntegerField(blank=True, null=True,
+                             verbose_name=_(u'Invoice no.'))
+    valid_from = models.DateField(db_column='validfrom',
                                   verbose_name=_(u'From'))
-    valid_to = models.DateField(db_column='bis',
-                                verbose_name=_(u'To'))
+    valid_until = models.DateField(db_column='validuntil',
+                                   verbose_name=_(u'To'))
 
     class Meta:
-        db_table = u'abrechnung'
-        db_column_prefix = u'abr_'
+        db_table = u'invoice'
+        db_column_prefix = u'inv_'
         verbose_name = _(u'Invoice')
         verbose_name_plural = _(u'Invoices')
 
@@ -800,31 +769,31 @@ class Invoice(DefaultInfo):
 
 
 class News(DefaultInfo):
-    title = models.CharField(max_length=200, db_column='titel')
-    message = models.TextField(db_column='text')
-    valid_from = models.DateField(db_column='gueltig_ab', null=True)
-    valid_to = models.DateField(db_column='gueltig_bis', null=True,
-                                blank=True)
+    title = models.CharField(max_length=200, verbose_name=_(u'Title'))
+    message = models.TextField(verbose_name=_(u'Message'))
+    valid_from = models.DateField(null=True, db_column='validfrom',
+                                  verbose_name=_(u'Valid from'))
+    valid_until = models.DateField(null=True, blank=True,
+                                   db_column='validuntil',
+                                   verbose_name=_(u'Valid to'))
 
     class Meta:
-        db_table = u'neuigkeit'
-        db_column_prefix = u'neu_'
+        db_table = u'news'
+        db_column_prefix = u'new_'
         verbose_name = _(u'News')
         verbose_name_plural = _(u'News')
 
 
 class NewsGroup(DefaultInfo):
-    news = models.ForeignKey('News', db_column='neuid',
+    news = models.ForeignKey('News', db_column='newid',
                              verbose_name=_(u'News'))
     group = models.ForeignKey(Group, db_column='groupid',
                               verbose_name=_(u'Group'))
-    priority = models.IntegerField(db_column='prio',
-                                   choices=PRIORITY_CHOICES,
-                                   default=1,
+    priority = models.IntegerField(choices=PRIORITY_CHOICES, default=1,
                                    verbose_name=_(u'Priority'))
 
     class Meta:
-        db_table = u'neuigkeitgruppe'
+        db_table = u'news_group'
         db_column_prefix = u'neg_'
         unique_together = ('news', 'group', 'priority')
         verbose_name = _(u'News group')
@@ -832,60 +801,52 @@ class NewsGroup(DefaultInfo):
 
 
 class Project(DefaultInfo):
-    name = models.CharField(db_column='name', max_length=80,
-                            unique=True,
-                            verbose_name=_(u'Name'))
-    key = models.CharField(db_column='kurz', max_length=12,
-                           unique=True, verbose_name=_(u'Key'))
-    image = models.ImageField(db_column='bild', blank=True, null=True,
-                              upload_to='projects',
+    name = models.CharField(max_length=80, unique=True, verbose_name=_(u'Name'))
+    key = models.CharField(max_length=12, unique=True, verbose_name=_(u'Key'))
+    image = models.ImageField(blank=True, null=True, upload_to='projects',
                               verbose_name=_(u'Image'))
-    description = models.TextField(db_column='bez',
-                                   blank=True, null=True,
+    description = models.TextField(blank=True, null=True,
                                    verbose_name=_(u'Description'))
-    customer = models.ForeignKey('Customer', db_column='knid',
+    customer = models.ForeignKey('Customer', db_column='cusid',
                                  verbose_name=_(u'Customer'))
-    company = models.ForeignKey('Company', db_column='firid',
+    company = models.ForeignKey('Company', db_column='comid',
                                 blank=True, null=True,
                                 verbose_name=_(u'Company'))
-    contact = models.ForeignKey('Contact', db_column='asid',
+    contact = models.ForeignKey('Contact', db_column='conid',
                                 blank=True, null=True,
                                 verbose_name=_(u'Contact'))
     type = models.ForeignKey('ProjectType', db_column='prtid',
                              verbose_name=_(u'Type'))
     #status = models.ForeignKey('ProjectStatus', db_column='prsid',
     #                           verbose_name=_(u'Status'))
-    status = models.IntegerField(db_column='srtid',
-                                 choices=PROJECT_STATUS_CHOICES,
+    status = models.IntegerField(choices=PROJECT_STATUS_CHOICES,
                                  verbose_name=_(u'Status'))
-    master = models.ForeignKey('Project', db_column='erstprid',
+    master = models.ForeignKey('Project', db_column='masterprid',
                                blank=True, null=True,
                                verbose_name=_(u'Master project'))
-    department = models.ForeignKey('Department', db_column='abtid',
+    department = models.ForeignKey('Department', db_column='depid',
                                    blank=True, null=True,
                                    verbose_name=_(u'Department'))
-    manager = models.ForeignKey(User, db_column='leitung', blank=True,
+    manager = models.ForeignKey(User, db_column='manageruid', blank=True,
                                 null=True, verbose_name=_(u'Project Manager'))
-    billing_type = models.ForeignKey('BillingType', db_column='abaid',
+    billing_type = models.ForeignKey('BillingType', db_column='btid',
                                      blank=True, null=True,
                                      verbose_name=_(u'Billing type'))
     commission_status = models.ForeignKey('CommissionStatus',
-                                          db_column='bsid',
-                                          blank=True, null=True,
+                                          db_column='csid', blank=True,
+                                          null=True,
                                           verbose_name=_(u'Commission status'))
     coefficient_saturday = models.DecimalField(
-        db_column='pr_faktorsamstag',
-        verbose_name=_(u'Coefficient (saturday)'),
+        db_column='cossaturday', verbose_name=_(u'Coefficient (saturday)'),
         max_digits=8, decimal_places=2, default=1)
     coefficient_sunday = models.DecimalField(
-        db_column='pr_faktorsonntag',
-        verbose_name=_(u'Coefficient (sunday)'),
+        db_column='cossunday', verbose_name=_(u'Coefficient (sunday)'),
         max_digits=8, decimal_places=2, default=1)
 
     # intnummer
 
     class Meta:
-        db_table = u'projekt'
+        db_table = u'project'
         db_column_prefix = u'pr_'
         ordering = ('id',)
         verbose_name = _(u'Project')
@@ -958,54 +919,50 @@ class Project(DefaultInfo):
 class ProjectRate(DefaultInfo):
     project = models.ForeignKey(Project, db_column='prid',
                                 verbose_name=_(u'Project'))
-    valid_from = models.DateField(db_column='von',
+    valid_from = models.DateField(db_column='validfrom',
                                   verbose_name=_(u'Valid from'))
-    valid_to = models.DateField(db_column='bis',
-                                verbose_name=_(u'Valid to'),
+    valid_until = models.DateField(db_column='validuntil',
+                                   verbose_name=_(u'Valid to'),
                                 default=datetime.date(4711, 12, 31))
-    hour_rate = models.DecimalField(db_column='stdsatz', max_digits=14,
-                                   decimal_places=2,
+    hourly_rate = models.DecimalField(max_digits=14, decimal_places=2,
+                                      db_column='hourlyrate',
                                    verbose_name=_(u'Hourly rate'))
 
     class Meta:
-        db_table = u'projektsatz'
-        db_column_prefix = u'psa_'
+        db_table = u'project_rate'
+        db_column_prefix = u'prr_'
         verbose_name = _(u'Projectrate')
         verbose_name_plural = _(u'Projectrates')
 
 
 class ProjectStep(DefaultInfo):
-    name = models.CharField(db_column='kbez', max_length=100,
-                            verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=100, verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
     project = models.ForeignKey('Project', db_column='prid',
                                 verbose_name=_(u'Project'))
-    position = models.IntegerField(db_column='pos',
-                                   verbose_name=_(u'Position'))
+    position = models.IntegerField(verbose_name=_(u'Position'))
     #status = models.ForeignKey('ProjectStepStatus', db_column='srtid',
     #                           verbose_name=_(u'Status'))
-    status = models.IntegerField(db_column='srtid', choices=STEP_STATUS_CHOICES,
+    status = models.IntegerField(choices=STEP_STATUS_CHOICES,
                                  verbose_name=_(u'Status'))
-    coefficient = models.DecimalField(db_column='faktor', max_digits=5,
+    coefficient = models.DecimalField(db_column='cos', max_digits=5,
                                       decimal_places=4, blank=True, null=True,
                                       verbose_name=_(u'Coefficient'))
-    duration = models.IntegerField(db_column='plandauer',
-                                   blank=True, null=True,
+    duration = models.IntegerField(blank=True, null=True,
                                    verbose_name=_(u'Duration'))
-    flat_rate = models.DecimalField(db_column='pauschale', max_digits=14,
-                                   decimal_places=2, blank=True, null=True,
-                                   verbose_name=_(u'Flatrate'))
-    day_rate = models.DecimalField(db_column='tagessatz', max_digits=14,
-                                   decimal_places=2, blank=True, null=True,
-                                   verbose_name=_(u'Daily rate'))
+    flat_rate = models.DecimalField(max_digits=14, decimal_places=2, blank=True,
+                                    db_column='flatrate', null=True,
+                                    verbose_name=_(u'Flatrate'))
+    daily_rate = models.DecimalField(max_digits=14, decimal_places=2,
+                                     blank=True, db_column='dailyrate',
+                                     null=True, verbose_name=_(u'Daily rate'))
 
     # intnummer
 
     class Meta:
-        db_table = u'projektschritt'
-        db_column_prefix = u'ps_'
+        db_table = u'project_step'
+        db_column_prefix = u'prs_'
         unique_together = ('name', 'project')
         verbose_name = _(u'Project step')
         verbose_name_plural = _(u'Project steps')
@@ -1040,14 +997,12 @@ class ProjectStep(DefaultInfo):
 
 class ProjectStepTemplate(DefaultInfo):
     """Defines a default step, that can be assigned with projects."""
-    name = models.CharField(db_column='kbez', max_length=100,
-                            verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=100, verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
 
     class Meta:
-        db_table = u'projektschritttemplate'
+        db_table = u'project_step_template'
         db_column_prefix = u'pst_'
         verbose_name = _(u'Project step template')
         verbose_name_plural = _(u'Project step templates')
@@ -1074,14 +1029,13 @@ class ProjectStepTemplate(DefaultInfo):
 
 class ProjectTracker(DefaultInfo):
     """Relation for :class:`Project` and :class:`IssueTracker`"""
-    tracker = models.ForeignKey(Tracker, db_column='tsyid',
-                                verbose_name=_(u'Issue tracker'))
+    tracker = models.ForeignKey(Tracker, verbose_name=_(u'Issue tracker'))
     project = models.ForeignKey('Project', db_column='prid',
                                 verbose_name=_(u'Project'))
 
     class Meta:
-        db_table = u'projektticketsystem'
-        db_column_prefix = u'pts_'
+        db_table = u'project_tracker'
+        db_column_prefix = u'ptr_'
         unique_together = ('tracker', 'project')
         verbose_name = _(u'Project issue tracker')
         verbose_name_plural = _(u'Project issue tracker')
@@ -1091,15 +1045,14 @@ class ProjectTracker(DefaultInfo):
 
 
 class ProjectType(models.Model):
-    name = models.CharField(db_column='kbez', max_length=100,
-                            unique=True, verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, db_column='bez',
-                                   blank=True, null=True,
+    name = models.CharField(max_length=100, unique=True,
+                            verbose_name=_(u'Name'))
+    description = models.CharField(max_length=255, blank=True, null=True,
                                    verbose_name=_(u'Description'))
 
     class Meta:
 
-        db_table = u'k_projekttyp'
+        db_table = u'project_type'
         db_column_prefix = u'prt_'
         ordering = ('name',)
         verbose_name = _(u'Project type')
@@ -1111,12 +1064,12 @@ class ProjectType(models.Model):
 
 class ProjectUser(DefaultInfo):
     project = models.ForeignKey('Project', db_column='prid')
-    user = models.ForeignKey(User, db_column='userid')
-    default_step = models.ForeignKey('ProjectStep', db_column='psid',
+    user = models.ForeignKey(User, db_column='uid')
+    default_step = models.ForeignKey('ProjectStep', db_column='prsid',
                                      blank=True, null=True)
 
     class Meta:
-        db_table = u'projektperson'
+        db_table = u'project_user'
         db_column_prefix = u'prp_'
         unique_together = ('project', 'user')
         verbose_name = _(u'Project user')
@@ -1127,42 +1080,38 @@ class ProjectUser(DefaultInfo):
 
 
 class ProjectUserRate(DefaultInfo):
-    project_user = models.ForeignKey('ProjectUser', db_column='pps_prpid')
-    purchase_rate = models.DecimalField(db_column='ek', max_digits=14,
-                                   decimal_places=2, null=True,
-                                   verbose_name=_(u'Purchase rate'))
-    sale_rate = models.DecimalField(db_column='vk', max_digits=14,
-                                   decimal_places=2, null=True,
-                                   verbose_name=_(u'Sale rate'))
-    hours = models.DecimalField(db_column='std', max_digits=7,
-                                   decimal_places=3, default=0,
-                                   verbose_name=_(u'Hours'))
-    hour_rate = models.DecimalField(db_column='stdsatz', max_digits=14,
-                                   decimal_places=2, null=True,
-                                   verbose_name=_(u'Hourly rate'))
-    valid_from = models.DateField(db_column='von',
+    project_user = models.ForeignKey('ProjectUser', db_column='prpid')
+    purchase_rate = models.DecimalField(max_digits=14, decimal_places=2,
+                                        null=True, db_column='purchaserate',
+                                        verbose_name=_(u'Purchase rate'))
+    sale_rate = models.DecimalField(max_digits=14, decimal_places=2, null=True,
+                                    db_column='salerate',
+                                    verbose_name=_(u'Sale rate'))
+    hours = models.DecimalField(max_digits=7, decimal_places=3, default=0,
+                                verbose_name=_(u'Hours'))
+    hourly_rate = models.DecimalField(max_digits=14, decimal_places=2,
+                                      db_column='hourlyrate',
+                                      null=True, verbose_name=_(u'Hourly rate'))
+    valid_from = models.DateField(db_column='validfrom',
                                   default=datetime.datetime(1970, 1, 1))
-    valid_to = models.DateField(db_column='bis',
-                                default=datetime.datetime(4711, 12, 31))
+    valid_until = models.DateField(db_column='validuntil',
+                                   default=datetime.datetime(4711, 12, 31))
 
     class Meta:
-        db_table = u'projektpersonsatz'
-        db_column_prefix = u'pps_'
+        db_table = u'project_userrate'
+        db_column_prefix = u'pur_'
         verbose_name = _(u'Project user rate')
         verbose_name_plural = _(u'Project user rates')
 
 
 class Salutation(models.Model):
-    short_name = models.CharField(db_column='kurz', max_length=10,
+    short_name = models.CharField(max_length=10, db_column='shortname',
                                   verbose_name=_(u'Short name'))
-    name = models.CharField(db_column='kbez', max_length=100,
-                            verbose_name=_(u'Name'))
-    letter = models.CharField(db_column='brf', max_length=100,
-                            verbose_name=_(u'Name'))
+    name = models.CharField(max_length=100, verbose_name=_(u'Name'))
 
     class Meta:
-        db_table = u'k_anrede'
-        db_column_prefix = u'an_'
+        db_table = u'salutation'
+        db_column_prefix = u'sal_'
         verbose_name = _(u'Salutation')
         verbose_name_plural = _(u'Salutations')
 
@@ -1176,33 +1125,28 @@ class StarredItem(models.Model):
     object_id = models.PositiveIntegerField(db_column='objectid')
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     user = models.ForeignKey(User, blank=True, null=True, editable=False,
-                             db_column='userid',
-                             related_name='%(class)s_creator',
+                             db_column='uid', related_name='%(class)s_creator',
                              verbose_name=_(u'User'))
 
     class Meta:
-        db_table = u'lesezeichen'
-        db_column_prefix = u'lez_'
+        db_table = u'starred_item'
+        db_column_prefix = u'si_'
         verbose_name = _(u'Starred item')
         verbose_name_plural = _(u'Starred items')
 
 
 class Timer(DefaultInfo):
-    start_time = models.DateTimeField(db_column='start',
+    start_time = models.DateTimeField(db_column='starttime',
                                       verbose_name=_(u'Start'))
     #end_time = models.DateTimeField(db_column='ende',
                                     #blank=True, null=True,
                                     #verbose_name=_(u'Stop'))
-    duration = models.IntegerField(db_column='dauer',
-                                   default=0,
-                                   verbose_name=_(u'Duration'))
-    title = models.CharField(db_column='titel', max_length=255,
-                             verbose_name=_(u'Title'))
+    duration = models.IntegerField(default=0, verbose_name=_(u'Duration'))
+    title = models.CharField(max_length=255, verbose_name=_(u'Title'))
     # TODO: change to BooleanField and remove status values
     #status = models.IntegerField(db_column='status', choices=TIMER_CHOICES,
                                  #default=1, verbose_name=_(u'Status'))
-    active = models.BooleanField(db_column='aktiv', default=False,
-                                 verbose_name=_(u'Active'))
+    active = models.BooleanField(default=False, verbose_name=_(u'Active'))
 
     class Meta:
         db_table = u'timer'
@@ -1273,43 +1217,43 @@ class Timer(DefaultInfo):
 
 class UserProfile(DefaultInfo):
     user = models.ForeignKey(User, unique=True,
-                             db_column='userid')
+                             db_column='uid')
     #short_name = models.CharField(db_column='kurz', max_length=8,
     #                              blank=True, null=True,
     #                              unique=True, verbose_name=_(u'Short name'))
-    company = models.ForeignKey('Company', db_column='firid', blank=True,
+    company = models.ForeignKey('Company', db_column='comid', blank=True,
                                 null=True, verbose_name=_(u'Company'))
     salutation = models.ForeignKey('Salutation', blank=True, null=True,
-                                   db_column='anid',
+                                   db_column='salid',
                                    verbose_name=_(u'Salutation'))
     address = models.ForeignKey('Address', db_column='adrid',
                                 blank=True, null=True,
                                 verbose_name=_(u'Address'))
-    communication = models.ForeignKey('Communication', db_column='komid',
+    communication = models.ForeignKey('Communication', db_column='cocid',
                                       verbose_name=_(u'Communication data'))
-    birthday = models.DateField(db_column='gebdat', blank=True, null=True,
+    birthday = models.DateField(blank=True, null=True,
                                 verbose_name=_(u'Birthday'))
-    day_rate = models.DecimalField(db_column='tagkosten', max_digits=14,
-                                   decimal_places=2, default=0,
-                                   verbose_name=_(u'Daily rate'))
-    job = models.CharField(db_column='job', max_length=80, blank=True,
-                           null=True, verbose_name=_(u'Job'))
-    personnel_no = models.CharField(db_column='personalnr', max_length=250,
+    daily_rate = models.DecimalField(max_digits=14, decimal_places=2, default=0,
+                                     db_column='dailyrate',
+                                     verbose_name=_(u'Daily rate'))
+    job = models.CharField(max_length=80, blank=True, null=True,
+                           verbose_name=_(u'Job'))
+    personnel_no = models.CharField(db_column='personnelno', max_length=250,
                                     blank=True, null=True,
                                     verbose_name=_(u'Personell no.'))
-    hours_per_week = models.DecimalField(db_column='stdwoche',
+    hours_per_week = models.DecimalField(db_column='hoursperweek',
                                          max_digits=14, decimal_places=2,
                                          blank=True, null=True,
                                          verbose_name=_(u'Hours per week'))
-    holidays_per_year = models.DecimalField(db_column='urlaub',
+    holidays_per_year = models.DecimalField(db_column='holidaysperyear',
                                             max_digits=14, decimal_places=2,
                                             blank=True, null=True,
                                             verbose_name=_(u'Holidays per year'))
-    language = models.CharField(db_column='sprache',
-        max_length=10, choices=LANGUAGE_CHOICES, verbose_name=_(u'Language'))
+    language = models.CharField(max_length=10, choices=LANGUAGE_CHOICES,
+                                verbose_name=_(u'Language'))
 
     class Meta:
-        db_table = u'person'
+        db_table = u'user_profile'
         db_column_prefix = u'pe_'
         verbose_name = _(u'User profile')
         verbose_name_plural = _(u'User profiles')
